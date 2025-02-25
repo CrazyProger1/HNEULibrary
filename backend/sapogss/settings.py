@@ -106,6 +106,7 @@ USE_L10N = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = config("STATIC_URL", default="static/")
+STATIC_ROOT = config("STATIC_ROOT", default="static/")
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
