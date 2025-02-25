@@ -107,9 +107,9 @@ USE_L10N = True
 
 STATIC_URL = config("STATIC_URL", default="static/")
 STATIC_ROOT = config("STATIC_ROOT", default="static/")
-STATICFILES_DIRS = [
-    BASE_DIR / "static",
-]
+# STATICFILES_DIRS = [
+#     BASE_DIR / "static",
+# ]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
