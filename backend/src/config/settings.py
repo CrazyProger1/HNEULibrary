@@ -23,16 +23,14 @@ INSTALLED_APPS = [
     "unfold.contrib.import_export",
     "unfold.contrib.guardian",
     "unfold.contrib.simple_history",
-
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-
     "rest_framework",
-
+    "drf_spectacular",
     "src.apps.library",
     "src.apps.docs",
     "src.apps.accounts",
@@ -139,5 +137,17 @@ UNFOLD = {
                     },
                 ],
             },
-        ]}
+        ],
+    },
+}
+
+REST_FRAMEWORK = {
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
+}
+
+SPECTACULAR_SETTINGS = {
+    "TITLE": "Just a library",
+    "DESCRIPTION": "Just a simple library API server",
+    "VERSION": "1.0.0",
+    "SERVE_INCLUDE_SCHEMA": False,
 }
