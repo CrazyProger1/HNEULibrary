@@ -20,7 +20,11 @@ class BookFilter(filters.FilterSet):
 
     class Meta:
         model = Book
-        fields = ("query",)
+        fields = (
+            "query",
+            "genre",
+            "author",
+        )
 
     def search(self, queryset, name, value):
         if value in ([], (), {}, "", None):
@@ -29,9 +33,7 @@ class BookFilter(filters.FilterSet):
         primary_results = search_books(
             source=queryset,
             term=value,
-            localized_fields=(
-                "title",
-            ),
+            localized_fields=("title",),
         ).annotate(
             priority=Value(1),
         )
@@ -42,7 +44,7 @@ class BookFilter(filters.FilterSet):
                 "author__first_name",
                 "author__last_name",
                 "genre__name",
-            )
+            ),
         ).annotate(
             priority=Value(2),
         )
