@@ -11,9 +11,17 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 SECRET_KEY = config("SECRET_KEY")
 
-DEBUG = config("DEBUG", default=True, cast=bool)
+DEBUG = config(
+    "DEBUG",
+    default=True,
+    cast=bool,
+)
 
-ALLOWED_HOSTS = config("ALLOWED_HOSTS", default="45.137.155.123", cast=Csv())
+ALLOWED_HOSTS = config(
+    "ALLOWED_HOSTS",
+    default="45.137.155.123",
+    cast=Csv(),
+)
 
 INSTALLED_APPS = [
     "unfold",
@@ -31,6 +39,8 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "rest_framework",
     "drf_spectacular",
+    "drf_standardized_errors",
+    "modeltranslation",
     "src.apps.library",
     "src.apps.docs",
     "src.apps.accounts",
@@ -111,7 +121,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 UNFOLD = {
     "SITE_TITLE": "Just a library",
     "SITE_HEADER": "Just a library",
-    "SITE_URL": "/docs",
+    "SITE_URL": "/",
     "SITE_SYMBOL": "book",
     "SHOW_HISTORY": True,
     "SHOW_VIEW_ON_SITE": True,
@@ -137,12 +147,34 @@ UNFOLD = {
                     },
                 ],
             },
+            {
+                "title": _("Library"),
+                "collapsible": True,
+                "items": [
+                    {
+                        "title": _("Genres"),
+                        "icon": "topic",
+                        "link": reverse_lazy("admin:library_genre_changelist"),
+                    },
+                    {
+                        "title": _("Books"),
+                        "icon": "library_books",
+                        "link": reverse_lazy("admin:library_book_changelist"),
+                    },
+                    {
+                        "title": _("Authors"),
+                        "icon": "signature",
+                        "link": reverse_lazy("admin:library_author_changelist"),
+                    },
+                ],
+            },
         ],
     },
 }
 
 REST_FRAMEWORK = {
     "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
+    "EXCEPTION_HANDLER": "drf_standardized_errors.handler.exception_handler",
 }
 
 SPECTACULAR_SETTINGS = {
