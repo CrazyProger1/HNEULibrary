@@ -19,3 +19,6 @@ migrate:
 	poetry run python manage.py migrate
 
 
+.PHONY: superuser
+superuser:
+	python manage.py createsuperuser --no-input
