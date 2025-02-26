@@ -26,4 +26,4 @@ superuser:
 
 .PHONY: update
 update:
-	git pull & rm poetry.lock & poetry install --no-root & supervisorctl restart library & supervisorctl status
+	git pull && rm poetry.lock && poetry install --no-root && supervisorctl restart library && supervisorctl status
