@@ -1,5 +1,6 @@
 from pathlib import Path
 
+from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
 from decouple import config, Csv
 from dotenv import load_dotenv
@@ -108,3 +109,35 @@ STATIC_URL = config("STATIC_URL", default="static/")
 STATIC_ROOT = config("STATIC_ROOT", default="static/")
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+UNFOLD = {
+    "SITE_TITLE": "Just a library",
+    "SITE_HEADER": "Just a library",
+    "SITE_URL": "/docs",
+    "SITE_SYMBOL": "book",
+    "SHOW_HISTORY": True,
+    "SHOW_VIEW_ON_SITE": True,
+    "SHOW_BACK_BUTTON": False,
+    "THEME": "dark",
+    "SIDEBAR": {
+        "show_search": True,
+        "show_all_applications": True,
+        "navigation": [
+            {
+                "title": _("Accounts"),
+                "collapsible": True,
+                "items": [
+                    {
+                        "title": _("Users"),
+                        "icon": "person",
+                        "link": reverse_lazy("admin:auth_user_changelist"),
+                    },
+                    {
+                        "title": _("Groups"),
+                        "icon": "group",
+                        "link": reverse_lazy("admin:auth_group_changelist"),
+                    },
+                ],
+            },
+        ]}
+}
