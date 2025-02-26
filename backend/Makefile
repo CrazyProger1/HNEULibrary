@@ -21,4 +21,4 @@ migrate:
 
 .PHONY: superuser
 superuser:
-	python manage.py createsuperuser --no-input
+	poetry run python manage.py createsuperuser --no-input
