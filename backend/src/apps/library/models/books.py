@@ -23,6 +23,13 @@ class Book(CreatedByModelMixin, TimestampModelMixin, models.Model):
         blank=True,
         null=True,
     )
+    author = models.ForeignKey(
+        to="Author",
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True,
+        verbose_name=_("author"),
+    )
 
     class Meta:
         verbose_name = _("Book")
