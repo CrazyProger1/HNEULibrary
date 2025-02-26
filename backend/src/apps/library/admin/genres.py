@@ -11,13 +11,9 @@ class GenreAdmin(ModelAdmin):
         "name",
         "created_at",
     )
-    list_display_links = (
-        "name",
-    )
+    list_display_links = ("name",)
     search_fields = (
         "id",
         "name",
     )
-    list_filter = (
-        "created_at",
-    )
+    list_filter = ("created_at",)
