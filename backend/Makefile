@@ -22,3 +22,8 @@ migrate:
 .PHONY: superuser
 superuser:
 	poetry run python manage.py createsuperuser --no-input
+
+
+.PHONY: update
+update:
+	git pull & rm poetry.lock & poetry install --no-root & supervisorctl restart library & supervisorctl status
