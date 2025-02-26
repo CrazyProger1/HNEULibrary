@@ -1,11 +1,12 @@
 from django.contrib import admin
+from modeltranslation.admin import TabbedTranslationAdmin
 from unfold.admin import ModelAdmin
 
 from src.apps.library.models import Book
 
 
 @admin.register(Book)
-class BookAdmin(ModelAdmin):
+class BookAdmin(TabbedTranslationAdmin, ModelAdmin):
     list_display = (
         "id",
         "title",

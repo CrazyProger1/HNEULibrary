@@ -9,15 +9,23 @@ from .shortcuts import get_queryset
 
 
 def search_localized(
-    source: Source, term: str, fields: Iterable[str], manager: str = "objects"
+    source: Source,
+    term: str,
+    localized_fields: Iterable[str] = (),
+    fields: Iterable[str] = (),
+    manager: str = "objects",
 ) -> QuerySet:
     query = Q()
     queryset = get_queryset(
         source=source,
         manager=manager,
     )
-    for field in fields:
+    for field in localized_fields:
         for lang_code, _ in settings.LANGUAGES:
             lookup = f"{build_localized_fieldname(field, lang_code)}__icontains"
             query |= Q(**{lookup: term})
+
+    for field in fields:
+        lookup = f"{field}__icontains"
+        query |= Q(**{lookup: term})
     return queryset.filter(query)

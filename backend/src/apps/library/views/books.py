@@ -13,7 +13,5 @@ class BookViewSet(
 ):
     queryset = get_all_books()
     serializer_class = BookListSerializer
-    filter_backends = (
-        filters.DjangoFilterBackend,
-    )
+    filter_backends = (filters.DjangoFilterBackend,)
     filterset_class = BookFilter
