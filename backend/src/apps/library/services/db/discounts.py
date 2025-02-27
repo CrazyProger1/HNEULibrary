@@ -21,7 +21,11 @@ def get_book_discounts(user: User, book: Book) -> models.QuerySet[Discount]:
         source=discounts,
         genres=book.genre,
     )
-    return queryset.distinct() | filter_objects(source=Discount, is_common=True)
+    queryset |= filter_objects(
+        source=Discount,
+        is_common=True,
+    )
+    return queryset.distinct()
 
 
 def get_user_discounts(user: User) -> models.QuerySet[Discount]:
