@@ -33,7 +33,7 @@ class Discount(CreatedByModelMixin, TimestampModelMixin, models.Model):
         null=False,
         blank=False,
         default=False,
-        verbose_name=_("is overall"),
+        verbose_name=_("is common"),
         help_text=_("Discount for everyone."),
     )
     genres = models.ManyToManyField(
