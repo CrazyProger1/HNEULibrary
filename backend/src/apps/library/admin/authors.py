@@ -1,12 +1,13 @@
 from django.contrib import admin
 from django.utils.translation import gettext_lazy as _
+from modeltranslation.admin import TabbedTranslationAdmin
 from unfold.admin import ModelAdmin
 
 from src.apps.library.models import Author
 
 
 @admin.register(Author)
-class AuthorAdmin(ModelAdmin):
+class AuthorAdmin(TabbedTranslationAdmin, ModelAdmin):
     list_display = (
         "id",
         "first_name",
