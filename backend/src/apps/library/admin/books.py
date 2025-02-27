@@ -56,6 +56,12 @@ class BookAdmin(TabbedTranslationAdmin, ModelAdmin):
             },
         ),
         (
+            "Finances",
+            {
+                "fields": ("rental_price", "deposit_price",),
+            },
+        ),
+        (
             "Metadata",
             {
                 "fields": (
