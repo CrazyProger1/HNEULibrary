@@ -19,7 +19,26 @@ class Discount(CreatedByModelMixin, TimestampModelMixin, models.Model):
     is_active = models.BooleanField(
         null=False,
         blank=False,
-        verbose_name=_("is active")
+        default=True,
+        verbose_name=_("is active"),
+    )
+    is_overall = models.BooleanField(
+        null=False,
+        blank=False,
+        default=False,
+        verbose_name=_("is overall"),
+    )
+    genres = models.ManyToManyField(
+        to="Genre",
+        verbose_name=_("genres"),
+        blank=True,
+        null=True,
+    )
+    books = models.ManyToManyField(
+        to="Book",
+        verbose_name=_("books"),
+        blank=True,
+        null=True,
     )
 
     class Meta:

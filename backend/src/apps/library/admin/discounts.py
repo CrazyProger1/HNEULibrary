@@ -11,6 +11,7 @@ class DiscountAdmin(ModelAdmin):
         "name",
         "discount",
         "is_active",
+        "is_overall",
     )
 
     search_fields = (
@@ -22,6 +23,11 @@ class DiscountAdmin(ModelAdmin):
     )
     list_filter = (
         "is_active",
+        "is_overall",
+    )
+    autocomplete_fields = (
+        "books",
+        "genres",
     )
     fieldsets = (
         (
@@ -31,6 +37,9 @@ class DiscountAdmin(ModelAdmin):
                     "name",
                     "discount",
                     "is_active",
+                    "is_overall",
+                    "genres",
+                    "books",
                 ),
             },
         ),
