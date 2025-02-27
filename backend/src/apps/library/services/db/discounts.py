@@ -8,7 +8,7 @@ User = get_user_model()
 
 
 def get_book_discounts(user: User, book: Book) -> models.QuerySet[Discount]:
-    discounts = user.discounts
+    discounts = user.discounts | filter_objects(source=Discount, is_common=True)
     queryset = filter_objects(
         source=discounts,
         is_overall=True,
