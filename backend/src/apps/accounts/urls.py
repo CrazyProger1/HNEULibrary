@@ -14,6 +14,6 @@ router.register("api/v1/users", UserViewSet)
 urlpatterns = (
     path("api/v1/tokens/", TokenObtainPairView.as_view(), name="token_obtain_pair"),
     path("api/v1/tokens/refresh/", TokenRefreshView.as_view(), name="token_refresh"),
-    path("api/tokens/verify/", TokenVerifyView.as_view(), name="token_verify"),
+    path("api/v1/tokens/verify/", TokenVerifyView.as_view(), name="token_verify"),
     *router.urls,
 )
