@@ -131,6 +131,7 @@ UNFOLD = {
     "SHOW_HISTORY": True,
     "SHOW_VIEW_ON_SITE": True,
     "SHOW_BACK_BUTTON": False,
+    "SHOW_LANGUAGES": True,
     "THEME": "dark",
     "SIDEBAR": {
         "show_search": True,

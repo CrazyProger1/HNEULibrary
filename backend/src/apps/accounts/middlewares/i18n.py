@@ -11,11 +11,14 @@ class I18NMiddleware:
         self.get_response = get_response
 
     def __call__(self, request):
-        accept_language = request.headers.get("Accept-Language", settings.LANGUAGE_CODE)
+        language = request.COOKIES.get("django_language")
 
-        if request.user.is_authenticated and hasattr(request.user, "language"):
+        if language:
+            translation.activate(language)
+        elif request.user.is_authenticated and hasattr(request.user, "language"):
             translation.activate(request.user.language)
         else:
+            accept_language = request.headers.get("Accept-Language", settings.LANGUAGE_CODE)
             translation.activate(accept_language)
 
         request.LANGUAGE_CODE = translation.get_language()
