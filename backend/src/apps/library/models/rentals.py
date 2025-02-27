@@ -46,4 +46,4 @@ class Rental(CreatedByModelMixin, TimestampModelMixin, models.Model):
         verbose_name_plural = _("Rental")
 
     def __str__(self):
-        return f"{_('Rental')}: {self.book.title}"
+        return f"{self.book.title} ({self.started_at.date()} - {self.ended_at.date()})"

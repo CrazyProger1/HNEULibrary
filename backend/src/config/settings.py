@@ -181,6 +181,11 @@ UNFOLD = {
                         "icon": "percent",
                         "link": reverse_lazy("admin:library_discount_changelist"),
                     },
+                    {
+                        "title": _("Fines"),
+                        "icon": "paid",
+                        "link": reverse_lazy("admin:library_fine_changelist"),
+                    },
                 ],
             },
         ],
