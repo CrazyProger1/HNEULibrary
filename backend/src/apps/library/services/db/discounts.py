@@ -8,7 +8,10 @@ User = get_user_model()
 
 
 def get_book_discounts(user: User, book: Book) -> models.QuerySet[Discount]:
-    discounts = user.discounts.all()
+    discounts = user.discounts.all() | filter_objects(
+        source=Discount,
+        is_common=True,
+    )
     queryset = filter_objects(
         source=discounts,
         is_overall=True,
@@ -20,10 +23,6 @@ def get_book_discounts(user: User, book: Book) -> models.QuerySet[Discount]:
     queryset |= filter_objects(
         source=discounts,
         genres=book.genre,
-    )
-    queryset |= filter_objects(
-        source=Discount,
-        is_common=True,
     )
     return queryset.distinct()
 
