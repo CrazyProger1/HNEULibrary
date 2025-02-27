@@ -1,11 +1,12 @@
 from django.contrib import admin
+from modeltranslation.admin import TabbedTranslationAdmin
 from unfold.admin import ModelAdmin
 
 from src.apps.library.models import Genre
 
 
 @admin.register(Genre)
-class GenreAdmin(ModelAdmin):
+class GenreAdmin(TabbedTranslationAdmin, ModelAdmin):
     list_display = (
         "id",
         "name",
