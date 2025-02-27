@@ -28,7 +28,7 @@ class GenreAdmin(TabbedTranslationAdmin, ModelAdmin):
     def admin_image(self, obj: Genre):
         if obj.image:
             return format_html(
-                '<img src="{}" width="150" height="80" />',
+                '<img src="{}" width="100" height="80" />',
                 settings.MEDIA_URL + obj.image.name,
             )
         return "No Image"
