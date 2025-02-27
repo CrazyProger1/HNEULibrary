@@ -6,7 +6,11 @@ from src.apps.library.models import Genre
 class GenreListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Genre
-        fields = "__all__"
+        fields = (
+            "id",
+            "name",
+            "image",
+        )
 
 
 class GenreRetrieveCompactSerializer(serializers.ModelSerializer):
