@@ -15,7 +15,6 @@ class RentalAdmin(ModelAdmin):
         "book__title",
         "reader__first_name",
         "reader__last_name",
-        "status",
     )
     list_display_links = (
         "admin_image",
@@ -26,7 +25,6 @@ class RentalAdmin(ModelAdmin):
         "book__title",
     )
     list_filter = (
-        "status",
         "ended_at",
         "started_at",
         "created_at",
@@ -40,7 +38,7 @@ class RentalAdmin(ModelAdmin):
         (
             _("Basic Information"),
             {
-                "fields": ("book", "status", "reader"),
+                "fields": ("book", "reader"),
             },
         ),
         (

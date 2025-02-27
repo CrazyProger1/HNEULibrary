@@ -6,7 +6,7 @@ from src.apps.library.serializers.authors import AuthorRetrieveCompactSerializer
 from src.apps.library.services.db import count_available_copies
 
 
-class BookListSerializer(serializers.ModelSerializer):
+class BookRetrieveSerializer(serializers.ModelSerializer):
     genre = GenreRetrieveCompactSerializer()
     author = AuthorRetrieveCompactSerializer()
     available_copies = serializers.SerializerMethodField()
@@ -27,3 +27,7 @@ class BookListSerializer(serializers.ModelSerializer):
 
     def get_available_copies(self, obj: Book):
         return count_available_copies(book=obj)
+
+
+class BookListSerializer(BookRetrieveSerializer):
+    pass

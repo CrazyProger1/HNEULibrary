@@ -1,9 +1,7 @@
 from typing import Iterable
 
 from django.db import models
-from django.db.models import Q
 
-from src.apps.library.enums import RentalStatus
 from src.apps.library.models import Book
 from src.utils.db import get_all_objects, search_localized, Source
 

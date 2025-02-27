@@ -3,7 +3,6 @@ from django.db import models
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 
-from src.apps.library.enums import RentalStatus
 from src.utils.db.models import TimestampModelMixin, CreatedByModelMixin
 
 
@@ -23,14 +22,6 @@ class Rental(CreatedByModelMixin, TimestampModelMixin, models.Model):
         null=False,
         blank=False,
         verbose_name=_("book"),
-    )
-    status = models.CharField(
-        max_length=50,
-        choices=RentalStatus,
-        null=False,
-        blank=False,
-        default=RentalStatus.ACTIVE,
-        verbose_name=_("status"),
     )
     started_at = models.DateTimeField(
         null=False,

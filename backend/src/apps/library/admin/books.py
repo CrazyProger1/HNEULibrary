@@ -32,7 +32,10 @@ class BookAdmin(TabbedTranslationAdmin, ModelAdmin):
         "created_at",
         "updated_at",
     )
-    autocomplete_fields = ("author",)
+    autocomplete_fields = (
+        "author",
+        "genre",
+    )
     fieldsets = (
         (
             "Basic Information",
