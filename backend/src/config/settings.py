@@ -150,11 +150,6 @@ UNFOLD = {
                         "icon": "group",
                         "link": reverse_lazy("admin:auth_group_changelist"),
                     },
-                    {
-                        "title": _("Discounts"),
-                        "icon": "percent",
-                        "link": reverse_lazy("admin:accounts_discount_changelist"),
-                    },
                 ],
             },
             {
@@ -180,6 +175,11 @@ UNFOLD = {
                         "title": _("Rentals"),
                         "icon": "schedule",
                         "link": reverse_lazy("admin:library_rental_changelist"),
+                    },
+                    {
+                        "title": _("Discounts"),
+                        "icon": "percent",
+                        "link": reverse_lazy("admin:library_discount_changelist"),
                     },
                 ],
             },

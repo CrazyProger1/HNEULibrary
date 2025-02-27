@@ -10,7 +10,7 @@ class CustomUser(AbstractUser):
         verbose_name=_("birth date"),
     )
     discounts = models.ManyToManyField(
-        to="Discount",
+        to="library.Discount",
         null=True,
         blank=True,
         verbose_name=_("discounts")
