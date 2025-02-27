@@ -12,7 +12,7 @@ class UserViewSet(
     queryset = get_all_users()
     serializer_classes = {
         "create": UserCreateSerializer,
-        "retrieve": UserRetrieveSerializer,
+        "me": UserRetrieveSerializer,
     }
 
     def get_serializer_class(self):
