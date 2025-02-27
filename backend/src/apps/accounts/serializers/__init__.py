@@ -1,1 +1,4 @@
-from src.apps.accounts.serializers.users import UserRetrieveSerializer, UserCreateSerializer
+from src.apps.accounts.serializers.users import (
+    UserRetrieveSerializer,
+    UserCreateSerializer,
+)

@@ -16,8 +16,7 @@ class GenreListSerializer(serializers.ModelSerializer):
 class GenreRetrieveCompactSerializer(serializers.ModelSerializer):
     class Meta:
         model = Genre
-        exclude = (
-            "created_at",
-            "updated_at",
-            "created_by",
+        fields = (
+            "id",
+            "name",
         )

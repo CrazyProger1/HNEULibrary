@@ -1,7 +1,9 @@
 from typing import Iterable
 
 from django.db import models
+from django.db.models import Q
 
+from src.apps.library.enums import RentalStatus
 from src.apps.library.models import Book
 from src.utils.db import get_all_objects, search_localized, Source
 
@@ -11,10 +13,10 @@ def get_all_books():
 
 
 def search_books(
-    source: Source[Book],
-    term: str,
-    localized_fields: Iterable[str] = (),
-    fields: Iterable[str] = (),
+        source: Source[Book],
+        term: str,
+        localized_fields: Iterable[str] = (),
+        fields: Iterable[str] = (),
 ) -> models.QuerySet[Book]:
     return search_localized(
         source=source,
@@ -22,3 +24,7 @@ def search_books(
         localized_fields=localized_fields,
         fields=fields,
     )
+
+
+def count_available_copies(book: Book):
+    return book.copies - book.rentals.filter(is_active=True).count()

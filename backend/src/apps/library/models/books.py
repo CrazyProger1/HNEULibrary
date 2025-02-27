@@ -37,6 +37,12 @@ class Book(CreatedByModelMixin, TimestampModelMixin, models.Model):
         null=True,
         blank=True,
     )
+    copies = models.PositiveIntegerField(
+        default=0,
+        blank=False,
+        null=False,
+        verbose_name=_("copies"),
+    )
 
     class Meta:
         verbose_name = _("Book")

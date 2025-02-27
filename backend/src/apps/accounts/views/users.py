@@ -36,7 +36,12 @@ class UserViewSet(
             status=status.HTTP_201_CREATED,
         )
 
-    @action(methods=("GET",), detail=False, url_path="me", permission_classes=(permissions.IsAuthenticated,))
+    @action(
+        methods=("GET",),
+        detail=False,
+        url_path="me",
+        permission_classes=(permissions.IsAuthenticated,),
+    )
     def me(self, request):
         instance = self.get_object()
         serializer = self.get_serializer(instance)
