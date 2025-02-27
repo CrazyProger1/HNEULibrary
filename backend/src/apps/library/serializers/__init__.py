@@ -1,4 +1,7 @@
-from src.apps.library.serializers.books import BookListSerializer, BookRetrieveSerializer
+from src.apps.library.serializers.books import (
+    BookListSerializer,
+    BookRetrieveSerializer,
+)
 from src.apps.library.serializers.genres import (
     GenreListSerializer,
     GenreRetrieveCompactSerializer,

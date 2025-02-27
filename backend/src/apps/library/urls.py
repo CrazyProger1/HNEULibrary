@@ -3,7 +3,8 @@ from rest_framework import routers
 from src.apps.library.views import (
     BookViewSet,
     GenreViewSet,
-    AuthorViewSet, RentalViewSet,
+    AuthorViewSet,
+    RentalViewSet,
 )
 
 router = routers.DefaultRouter()

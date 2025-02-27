@@ -18,6 +18,8 @@ class BookRetrieveSerializer(serializers.ModelSerializer):
             "title",
             "image",
             "available_copies",
+            "rental_price",
+            "deposit_price",
             "published_at",
             "created_at",
             "updated_at",
