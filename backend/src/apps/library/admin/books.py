@@ -1,4 +1,6 @@
+from django.conf import settings
 from django.contrib import admin
+from django.utils.html import format_html
 from modeltranslation.admin import TabbedTranslationAdmin
 from unfold.admin import ModelAdmin
 
@@ -8,6 +10,7 @@ from src.apps.library.models import Book
 @admin.register(Book)
 class BookAdmin(TabbedTranslationAdmin, ModelAdmin):
     list_display = (
+        "admin_image",
         "id",
         "title",
         "genre__name",
@@ -15,7 +18,10 @@ class BookAdmin(TabbedTranslationAdmin, ModelAdmin):
         "created_at",
         "updated_at",
     )
-    list_display_links = ("title",)
+    list_display_links = (
+        "admin_image",
+        "title",
+    )
     search_fields = (
         "id",
         "title",
@@ -26,3 +32,13 @@ class BookAdmin(TabbedTranslationAdmin, ModelAdmin):
         "created_at",
         "updated_at",
     )
+
+    def admin_image(self, obj: Book):
+        if obj.image:
+            return format_html(
+                '<img src="{}" width="80" height="150" />',
+                settings.MEDIA_URL + obj.image.name,
+            )
+        return "No Image"
+
+    admin_image.short_description = "Image"

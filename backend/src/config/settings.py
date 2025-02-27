@@ -1,3 +1,4 @@
+import os.path
 from pathlib import Path
 
 from django.urls import reverse_lazy
@@ -38,6 +39,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "rest_framework",
+    "django_filters",
     "drf_spectacular",
     "drf_standardized_errors",
     "modeltranslation",
@@ -185,3 +187,7 @@ SPECTACULAR_SETTINGS = {
     "VERSION": "1.0.0",
     "SERVE_INCLUDE_SCHEMA": False,
 }
+
+MEDIA_URL = "media/"
+MEDIA_ROOT = "media/"
+UPLOADS_DIR = "uploads/"

@@ -17,3 +17,7 @@ class AuthorAdmin(ModelAdmin):
         "first_name",
         "last_name",
     )
+    list_display_links = (
+        "first_name",
+        "last_name",
+    )
