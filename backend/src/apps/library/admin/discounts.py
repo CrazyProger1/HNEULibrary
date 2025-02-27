@@ -38,6 +38,7 @@ class DiscountAdmin(ModelAdmin):
                     "discount",
                     "is_active",
                     "is_overall",
+                    "is_common",
                     "genres",
                     "books",
                 ),
