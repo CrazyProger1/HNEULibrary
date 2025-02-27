@@ -53,3 +53,6 @@ class Rental(CreatedByModelMixin, TimestampModelMixin, models.Model):
     class Meta:
         verbose_name = _("Rental")
         verbose_name_plural = _("Rental")
+
+    def __str__(self):
+        return f"{_('Rental')}: {self.book.title}"

@@ -1,6 +1,7 @@
 from django.conf import settings
 from django.contrib import admin
 from django.utils.html import format_html
+from django.utils.translation import gettext_lazy as _
 from unfold.admin import ModelAdmin
 
 from src.apps.library.models import Rental
@@ -31,6 +32,34 @@ class RentalAdmin(ModelAdmin):
         "created_at",
     )
     list_select_related = ("book",)
+    autocomplete_fields = (
+        "reader",
+        "book",
+    )
+    fieldsets = (
+        (
+            _("Basic Information"),
+            {
+                "fields": ("book", "status", "reader"),
+            },
+        ),
+        (
+            _("Rental Period"),
+            {
+                "fields": ("started_at", "ended_at"),
+            },
+        ),
+        (
+            _("Metadata"),
+            {
+                "fields": (
+                    "created_at",
+                    "created_by",
+                ),
+                "classes": ("collapse",),
+            },
+        ),
+    )
 
     def admin_image(self, obj: Rental):
         image = obj.book.image

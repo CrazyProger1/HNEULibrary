@@ -23,7 +23,6 @@ class BookListSerializer(serializers.ModelSerializer):
             "updated_at",
             "author",
             "genre",
-
         )
 
     def get_available_copies(self, obj: Book):

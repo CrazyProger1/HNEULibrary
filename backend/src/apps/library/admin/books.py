@@ -32,6 +32,37 @@ class BookAdmin(TabbedTranslationAdmin, ModelAdmin):
         "created_at",
         "updated_at",
     )
+    autocomplete_fields = ("author",)
+    fieldsets = (
+        (
+            "Basic Information",
+            {
+                "fields": (
+                    "title",
+                    "genre",
+                    "author",
+                    "published_at",
+                    "copies",
+                ),
+            },
+        ),
+        (
+            "Media",
+            {
+                "fields": ("image",),
+            },
+        ),
+        (
+            "Metadata",
+            {
+                "fields": (
+                    "created_at",
+                    "created_by",
+                ),
+                "classes": ("collapse",),
+            },
+        ),
+    )
 
     def admin_image(self, obj: Book):
         if obj.image:

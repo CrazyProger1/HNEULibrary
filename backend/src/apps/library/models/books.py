@@ -49,4 +49,4 @@ class Book(CreatedByModelMixin, TimestampModelMixin, models.Model):
         verbose_name_plural = _("Books")
 
     def __str__(self):
-        return f"{_('Book')}: {self.title}"
+        return self.title

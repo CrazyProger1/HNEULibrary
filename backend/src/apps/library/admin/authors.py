@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.utils.translation import gettext_lazy as _
 from unfold.admin import ModelAdmin
 
 from src.apps.library.models import Author
@@ -20,4 +21,26 @@ class AuthorAdmin(ModelAdmin):
     list_display_links = (
         "first_name",
         "last_name",
+    )
+    fieldsets = (
+        (
+            _("Basic Information"),
+            {
+                "fields": (
+                    "first_name",
+                    "last_name",
+                    "user",
+                ),
+            },
+        ),
+        (
+            _("Metadata"),
+            {
+                "fields": (
+                    "created_at",
+                    "created_by",
+                ),
+                "classes": ("collapse",),
+            },
+        ),
     )

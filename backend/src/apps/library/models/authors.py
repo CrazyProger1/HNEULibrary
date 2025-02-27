@@ -31,4 +31,4 @@ class Author(CreatedByModelMixin, TimestampModelMixin, models.Model):
         verbose_name_plural = _("Author")
 
     def __str__(self):
-        return f"{_('Author')}: {self.first_name} {self.last_name}"
+        return f"{self.first_name} {self.last_name}"

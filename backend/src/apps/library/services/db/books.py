@@ -13,10 +13,10 @@ def get_all_books():
 
 
 def search_books(
-        source: Source[Book],
-        term: str,
-        localized_fields: Iterable[str] = (),
-        fields: Iterable[str] = (),
+    source: Source[Book],
+    term: str,
+    localized_fields: Iterable[str] = (),
+    fields: Iterable[str] = (),
 ) -> models.QuerySet[Book]:
     return search_localized(
         source=source,

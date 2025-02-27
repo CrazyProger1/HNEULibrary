@@ -1,6 +1,7 @@
 from django.conf import settings
 from django.contrib import admin
 from django.utils.html import format_html
+from django.utils.translation import gettext_lazy as _
 from modeltranslation.admin import TabbedTranslationAdmin
 from unfold.admin import ModelAdmin
 
@@ -24,6 +25,27 @@ class GenreAdmin(TabbedTranslationAdmin, ModelAdmin):
         "name",
     )
     list_filter = ("created_at",)
+    fieldsets = (
+        (
+            _("Basic Information"),
+            {
+                "fields": ("name",),
+            },
+        ),
+        (
+            "Media",
+            {
+                "fields": ("image",),
+            },
+        ),
+        (
+            _("Metadata"),
+            {
+                "fields": ("created_at", "created_by"),
+                "classes": ("collapse",),
+            },
+        ),
+    )
 
     def admin_image(self, obj: Genre):
         if obj.image:
