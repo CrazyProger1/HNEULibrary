@@ -1,0 +1,299 @@
+# Ukrainian translations for PROJECT.
+# Copyright (C) 2025 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2025-02-27 17:53+0200\n"
+"PO-Revision-Date: 2025-02-27 17:53+0200\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: uk\n"
+"Language-Team: uk <LL@li.org>\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.17.0\n"
+
+#: src/apps/accounts/admin.py:27
+msgid "Personal Info"
+msgstr "Особиста інформація"
+
+#: src/apps/accounts/admin.py:39
+msgid "Permissions"
+msgstr "Дозволи"
+
+#: src/apps/accounts/admin.py:50
+msgid "Important Dates"
+msgstr "Важливі дати"
+
+#: src/apps/accounts/models/users.py:10
+msgid "birth date"
+msgstr "дата народження"
+
+#: src/apps/accounts/models/users.py:16
+msgid "discounts"
+msgstr "знижки"
+
+#: src/apps/library/enums.py:6
+msgid "Active"
+msgstr "Активний"
+
+#: src/apps/library/enums.py:7
+msgid "Returned"
+msgstr "Повернуто"
+
+#: src/apps/library/enums.py:8
+msgid "Overdue"
+msgstr "Прострочено"
+
+#: src/apps/library/enums.py:9
+msgid "Lost"
+msgstr "Втрачено"
+
+#: src/apps/library/enums.py:10
+msgid "Damaged"
+msgstr "Пошкоджено"
+
+#: src/apps/library/admin/authors.py:28 src/apps/library/admin/genres.py:30
+#: src/apps/library/admin/rentals.py:39
+msgid "Basic Information"
+msgstr "Основна інформація"
+
+#: src/apps/library/admin/authors.py:38 src/apps/library/admin/genres.py:42
+#: src/apps/library/admin/rentals.py:51
+msgid "Metadata"
+msgstr "Метадані"
+
+#: src/apps/library/admin/rentals.py:45
+msgid "Rental Period"
+msgstr "Період оренди"
+
+#: src/apps/library/models/authors.py:11
+msgid "first name"
+msgstr "ім’я"
+
+#: src/apps/library/models/authors.py:17
+msgid "last name"
+msgstr "прізвище"
+
+#: src/apps/library/models/authors.py:23
+msgid "internal user"
+msgstr "внутрішній користувач"
+
+#: src/apps/library/models/authors.py:30 src/apps/library/models/authors.py:31
+msgid "Author"
+msgstr "Автор"
+
+#: src/apps/library/models/books.py:13
+msgid "genre"
+msgstr "жанр"
+
+#: src/apps/library/models/books.py:17
+msgid "title"
+msgstr "назва"
+
+#: src/apps/library/models/books.py:22
+msgid "published at"
+msgstr "опубліковано"
+
+#: src/apps/library/models/books.py:23
+msgid "Book publication date and time."
+msgstr "Дата і час публікації книги."
+
+#: src/apps/library/models/books.py:32
+msgid "author"
+msgstr "автор"
+
+#: src/apps/library/models/books.py:35 src/apps/library/models/genres.py:16
+msgid "image"
+msgstr "зображення"
+
+#: src/apps/library/models/books.py:44
+msgid "copies"
+msgstr "копії"
+
+#: src/apps/library/models/books.py:51
+msgid "deposit price"
+msgstr "ціна депозиту"
+
+#: src/apps/library/models/books.py:52
+msgid "The amount the client pays as a deposit."
+msgstr "Сума, яку клієнт сплачує як депозит."
+
+#: src/apps/library/models/books.py:59
+msgid "rental price"
+msgstr "ціна оренди"
+
+#: src/apps/library/models/books.py:60
+msgid "The cost per day for renting the book."
+msgstr "Вартість оренди книги за день."
+
+#: src/apps/library/models/books.py:64
+msgid "Book"
+msgstr "Книга"
+
+#: src/apps/library/models/books.py:65 src/config/settings.py:166
+msgid "Books"
+msgstr "Книги"
+
+#: src/apps/library/models/discounts.py:12 src/apps/library/models/genres.py:11
+msgid "name"
+msgstr "назва"
+
+#: src/apps/library/models/discounts.py:17
+msgid "discount percent"
+msgstr "відсоток знижки"
+
+#: src/apps/library/models/discounts.py:23
+#: src/apps/library/models/rentals.py:41
+msgid "is active"
+msgstr "активний"
+
+#: src/apps/library/models/discounts.py:29
+msgid "is overall"
+msgstr "загальний"
+
+#: src/apps/library/models/discounts.py:30
+msgid "Discount for all books."
+msgstr "Знижка на всі книги."
+
+#: src/apps/library/models/discounts.py:36
+msgid "is common"
+msgstr "загальна"
+
+#: src/apps/library/models/discounts.py:37
+msgid "Discount for everyone."
+msgstr "Знижка для всіх."
+
+#: src/apps/library/models/discounts.py:41
+msgid "genres"
+msgstr "жанри"
+
+#: src/apps/library/models/discounts.py:47
+msgid "books"
+msgstr "книги"
+
+#: src/apps/library/models/discounts.py:53
+msgid "Discount"
+msgstr "Знижка"
+
+#: src/apps/library/models/discounts.py:54 src/config/settings.py:181
+msgid "Discounts"
+msgstr "Знижки"
+
+#: src/apps/library/models/fines.py:13
+msgid "rental"
+msgstr "оренда"
+
+#: src/apps/library/models/fines.py:20
+msgid "amount"
+msgstr "сума"
+
+#: src/apps/library/models/fines.py:21
+msgid "The amount of money reader should pay."
+msgstr "Сума грошей, яку повинен сплатити читач."
+
+#: src/apps/library/models/fines.py:24
+msgid "reason"
+msgstr "причина"
+
+#: src/apps/library/models/fines.py:32
+msgid "is compensated"
+msgstr "компенсовано"
+
+#: src/apps/library/models/fines.py:36
+msgid "Fine"
+msgstr "Штраф"
+
+#: src/apps/library/models/fines.py:37 src/config/settings.py:186
+msgid "Fines"
+msgstr "Штрафи"
+
+#: src/apps/library/models/genres.py:23
+msgid "Genre"
+msgstr "Жанр"
+
+#: src/apps/library/models/genres.py:24 src/config/settings.py:161
+msgid "Genres"
+msgstr "Жанри"
+
+#: src/apps/library/models/rentals.py:16
+msgid "reader"
+msgstr "читач"
+
+#: src/apps/library/models/rentals.py:24
+msgid "book"
+msgstr "книга"
+
+#: src/apps/library/models/rentals.py:30
+msgid "start at"
+msgstr "початок"
+
+#: src/apps/library/models/rentals.py:35
+msgid "end at"
+msgstr "кінець"
+
+#: src/apps/library/models/rentals.py:45 src/apps/library/models/rentals.py:46
+msgid "Rental"
+msgstr "Оренда"
+
+#: src/config/settings.py:111
+msgid "English"
+msgstr "Англійська"
+
+#: src/config/settings.py:112
+msgid "Ukrainian"
+msgstr "Українська"
+
+#: src/config/settings.py:141
+msgid "Accounts"
+msgstr "Облікові записи"
+
+#: src/config/settings.py:145
+msgid "Users"
+msgstr "Користувачі"
+
+#: src/config/settings.py:150
+msgid "Groups"
+msgstr "Групи"
+
+#: src/config/settings.py:157
+msgid "Library"
+msgstr "Бібліотека"
+
+#: src/config/settings.py:171
+msgid "Authors"
+msgstr "Автори"
+
+#: src/config/settings.py:176
+msgid "Rentals"
+msgstr "Оренди"
+
+#: src/utils/db/models.py:9
+msgid "created at"
+msgstr "створено"
+
+#: src/utils/db/models.py:10
+msgid "Creation date and time."
+msgstr "Дата та час створення."
+
+#: src/utils/db/models.py:20
+msgid "updated at"
+msgstr "оновлено"
+
+#: src/utils/db/models.py:21
+msgid "Update date and time."
+msgstr "Дата та час оновлення."
+
+#: src/utils/db/models.py:37
+msgid "created by"
+msgstr "створено користувачем"
+
+#: src/utils/db/models.py:38
+msgid "User who created this object."
+msgstr "Користувач, який створив цей об’єкт."
