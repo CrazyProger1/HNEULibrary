@@ -42,5 +42,5 @@ i18n.init:
 
 .PHONY: i18n.compile
 i18n.compile:
-	poetry run pybabel compile -d locale
-	cp locale/uk/LC_MESSAGES/message.mo locale/uk/LC_MESSAGES/django.mo
+	poetry run pybabel compile -d locale && cp locale/uk/LC_MESSAGES/message.mo locale/uk/LC_MESSAGES/django.mo
+
