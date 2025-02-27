@@ -24,4 +24,4 @@ class Genre(CreatedByModelMixin, TimestampModelMixin, models.Model):
         verbose_name_plural = _("Genres")
 
     def __str__(self):
-        return f"{_('Genre')}: {self.name}"
+        return self.name
