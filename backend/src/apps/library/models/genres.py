@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
@@ -10,6 +11,12 @@ class Genre(CreatedByModelMixin, TimestampModelMixin, models.Model):
         verbose_name=_("name"),
         blank=False,
         null=False,
+    )
+    image = models.FileField(
+        verbose_name=_("image"),
+        upload_to=settings.UPLOADS_DIR,
+        null=True,
+        blank=True,
     )
 
     class Meta:
