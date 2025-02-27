@@ -5,6 +5,7 @@ from src.apps.library.views import (
     GenreViewSet,
     AuthorViewSet,
     RentalViewSet,
+    DiscountViewSet,
 )
 
 router = routers.DefaultRouter()
@@ -13,5 +14,6 @@ router.register("api/v1/books", BookViewSet)
 router.register("api/v1/genres", GenreViewSet)
 router.register("api/v1/authors", AuthorViewSet)
 router.register("api/v1/rentals", RentalViewSet)
+router.register("api/v1/discounts", DiscountViewSet)
 
 urlpatterns = router.urls

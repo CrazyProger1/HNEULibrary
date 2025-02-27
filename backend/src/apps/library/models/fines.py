@@ -35,3 +35,6 @@ class Fine(CreatedByModelMixin, TimestampModelMixin, models.Model):
     class Meta:
         verbose_name = _("Fine")
         verbose_name_plural = _("Fines")
+
+    def __str__(self):
+        return f"{self.rental.book} - {self.amount}"

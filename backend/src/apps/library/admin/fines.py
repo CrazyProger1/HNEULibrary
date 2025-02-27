@@ -61,7 +61,7 @@ class FineAdmin(ModelAdmin):
         image = obj.rental.book.image
         if image:
             return format_html(
-                '<img src="{}" width="150" height="120" />',
+                '<img src="{}" width="80" height="150" />',
                 settings.MEDIA_URL + image.name,
             )
         return "No Image"
