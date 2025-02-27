@@ -106,7 +106,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-LANGUAGE_CODE = config("LANGUAGE_CODE", default="en-us")
+LANGUAGE_CODE = config("LANGUAGE_CODE", default="uk")
 
 LANGUAGES = [
     ("en", _("English")),
@@ -114,6 +114,10 @@ LANGUAGES = [
 ]
 
 TIME_ZONE = config("TIME_ZONE", default="UTC")
+
+LOCALE_PATHS = (
+    BASE_DIR / "locale",
+)
 
 USE_I18N = True
 USE_TZ = True
@@ -249,7 +253,3 @@ SIMPLE_JWT = {
     "SLIDING_TOKEN_REFRESH_SERIALIZER": "rest_framework_simplejwt.serializers.TokenRefreshSlidingSerializer",
 }
 AUTH_USER_MODEL = "accounts.CustomUser"
-
-LOCALE_PATHS = [
-    BASE_DIR / "locale",
-]

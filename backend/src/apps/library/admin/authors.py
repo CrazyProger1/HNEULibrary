@@ -1,5 +1,5 @@
 from django.contrib import admin
-from django.utils.translation import gettext_lazy as _
+from django.utils.translation import gettext_lazy as _, get_language
 from modeltranslation.admin import TabbedTranslationAdmin
 from unfold.admin import ModelAdmin
 
@@ -45,3 +45,9 @@ class AuthorAdmin(TabbedTranslationAdmin, ModelAdmin):
             },
         ),
     )
+
+    def get_queryset(self, request):
+        print(request.LANGUAGE_CODE)
+        print(_("Authors"))
+        print(get_language())
+        return super().get_queryset(request)
