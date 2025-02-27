@@ -18,6 +18,7 @@ python-dotenv = "^1.0.1"
 drf-spectacular = "^0.28.0"
 drf-standardized-errors = { extras = ["openapi"], version = "^0.14.1" }
 django-modeltranslation = "^0.19.12"
+djangorestframework-simplejwt = {extras = ["crypto"], version = "^5.5.0"}
 
 [build-system]
 requires = ["poetry-core"]
