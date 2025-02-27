@@ -11,3 +11,7 @@ from src.apps.library.services.db.discounts import (
     get_user_discounts,
     get_all_discounts,
 )
+from src.apps.library.services.db.fines import (
+    get_user_fines,
+    get_all_fines,
+)

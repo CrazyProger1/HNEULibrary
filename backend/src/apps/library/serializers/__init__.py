@@ -12,3 +12,4 @@ from src.apps.library.serializers.authors import (
 )
 from src.apps.library.serializers.rentals import RentalListSerializer
 from src.apps.library.serializers.discounts import DiscountListSerializer
+from src.apps.library.serializers.fines import FineListSerializer
