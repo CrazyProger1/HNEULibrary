@@ -11,3 +11,4 @@ from src.apps.library.serializers.authors import (
     AuthorRetrieveCompactSerializer,
 )
 from src.apps.library.serializers.rentals import RentalListSerializer
+from src.apps.library.serializers.discounts import DiscountListSerializer
