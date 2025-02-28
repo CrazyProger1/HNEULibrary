@@ -1,10 +1,18 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.tsx'
+import "./styles";
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import { BrowserRouter } from "react-router-dom";
+import { Provider } from "mobx-react";
+import App from "./App.tsx";
 
-createRoot(document.getElementById('root')!).render(
+const stores = {};
+
+createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <App />
+    <BrowserRouter>
+      <Provider {...stores}>
+        <App />
+      </Provider>
+    </BrowserRouter>
   </StrictMode>,
-)
+);
