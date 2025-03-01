@@ -15,8 +15,8 @@ export const getBooks = async (): Promise<BooksResponse> => {
   };
 };
 
-export const getBook = async (): Promise<BookResponse> => {
-  const url = URLS.BOOKS;
+export const getBook = async (id: number): Promise<BookResponse> => {
+  const url = URLS.BOOK.replace("[id]", String(id));
   const response = await axios.get(url);
 
   return {
