@@ -1,1 +1,2 @@
-export * from "./navigation.ts";
+export { PAGES } from "./navigation.ts";
+export { URLS } from "./api.ts";

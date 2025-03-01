@@ -12,8 +12,8 @@ export type ErrorResponse = {
 } & Response;
 
 export type PaginatedResponse<T> = {
-  limit?: number;
-  offset?: number;
+  next?: string;
+  previous?: string;
   count: number;
   results: T[];
 } & SuccessfulResponse;
