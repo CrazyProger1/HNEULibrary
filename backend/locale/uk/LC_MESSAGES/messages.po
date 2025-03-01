@@ -276,3 +276,12 @@ msgstr "телефон"
 
 msgid "image"
 msgstr "зображення"
+
+msgid "Finances"
+msgstr "Фінанси"
+
+msgid "Metadata"
+msgstr "Метадата"
+
+msgid "Media"
+msgstr "Медіа"
