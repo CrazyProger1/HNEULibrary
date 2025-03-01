@@ -273,3 +273,6 @@ msgstr "Користувач, який створив цей об’єкт."
 
 msgid "phone"
 msgstr "телефон"
+
+msgid "image"
+msgstr "зображення"
