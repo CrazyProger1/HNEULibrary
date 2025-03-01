@@ -270,3 +270,6 @@ msgstr "створено користувачем"
 #: src/utils/db/models.py:38
 msgid "User who created this object."
 msgstr "Користувач, який створив цей об’єкт."
+
+msgid "phone"
+msgstr "телефон"
