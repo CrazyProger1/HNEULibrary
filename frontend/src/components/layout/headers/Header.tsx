@@ -13,6 +13,9 @@ const Header = () => {
             <HeaderButton name={btnName} />
           </div>
         ))}
+          <button className={"font-phil text-xl text-bold p-2 m-3 w-max cursor-pointer hover:bg-white rounded-lg"}>
+              Мій кабінет
+          </button>
       </div>
     </div>
   );
