@@ -1,13 +1,15 @@
 import { Route, Routes } from "react-router-dom";
-import { MainPage } from "./pages";
+import { MainPage, BooksPage } from "./pages";
 import { PAGES } from "./constants";
+import { Layout } from "./components/layout";
 
 const App = () => (
-  <div className="h-screen bg-white">
+  <Layout>
     <Routes>
       <Route path={PAGES.MAIN} element={<MainPage />} />
+      <Route path={PAGES.BOOKS} element={<BooksPage />} />
     </Routes>
-  </div>
+  </Layout>
 );
 
 export default App;

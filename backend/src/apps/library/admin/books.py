@@ -1,6 +1,7 @@
 from django.conf import settings
 from django.contrib import admin
 from django.utils.html import format_html
+from django.utils.translation import gettext_lazy as _
 from modeltranslation.admin import TabbedTranslationAdmin
 from unfold.admin import ModelAdmin
 
@@ -50,13 +51,13 @@ class BookAdmin(TabbedTranslationAdmin, ModelAdmin):
             },
         ),
         (
-            "Media",
+            _("Media"),
             {
                 "fields": ("image",),
             },
         ),
         (
-            "Finances",
+            _("Finances"),
             {
                 "fields": (
                     "rental_price",
@@ -65,7 +66,7 @@ class BookAdmin(TabbedTranslationAdmin, ModelAdmin):
             },
         ),
         (
-            "Metadata",
+            _("Metadata"),
             {
                 "fields": (
                     "created_at",

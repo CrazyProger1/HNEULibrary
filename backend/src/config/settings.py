@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     "rest_framework",
     "django_filters",
     "drf_spectacular",
+    "corsheaders",
     "rest_framework_simplejwt",
     "drf_standardized_errors",
     "modeltranslation",
@@ -53,13 +54,14 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.middleware.locale.LocaleMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-"src.apps.accounts.middlewares.I18NMiddleware",
+    "src.apps.accounts.middlewares.I18NMiddleware",
 ]
 
 ROOT_URLCONF = "src.config.urls"
@@ -252,3 +254,4 @@ SIMPLE_JWT = {
     "SLIDING_TOKEN_REFRESH_SERIALIZER": "rest_framework_simplejwt.serializers.TokenRefreshSlidingSerializer",
 }
 AUTH_USER_MODEL = "accounts.CustomUser"
+CORS_ALLOW_ALL_ORIGINS = True
