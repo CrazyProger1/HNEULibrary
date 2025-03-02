@@ -1,10 +1,10 @@
 import ExploreButton from "../buttons/ExploreButton.tsx";
-import BookCardMainPage from "../cards/BookCardMainPage.tsx";
+import BookCard from "../cards/BookCard.tsx";
 
 const ExploreMainPage = () => {
         const booksMainPage = [
             {author: "М. Булгаков", name: "Собачье сердце"},
-            {author: "Ф. Достоевский", name: "Преступление и наказание"},
+            {author: "Ф. Достоевский", name: "Преступление"},
             {author: "А. Пушкин", name: "Пиковая дама"},
             {author: "Т. Шевченко", name: "Катерина"},
         ]
@@ -20,7 +20,7 @@ const ExploreMainPage = () => {
                 <div className={"flex gap-5 m-5"}>
                     {booksMainPage.map((book) => (
                         <div>
-                            <BookCardMainPage title={book.name} author={book.author}/>
+                            <BookCard title={book.name} authorName={book.author} authorLastName={""}/>
                         </div>
                     ))}
                 </div>
