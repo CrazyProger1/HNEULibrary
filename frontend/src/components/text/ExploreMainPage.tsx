@@ -20,7 +20,7 @@ const ExploreMainPage = () => {
                 <div className={"flex gap-5 m-5"}>
                     {booksMainPage.map((book) => (
                         <div>
-                            <BookCardMainPage name={book.name} author={book.author}/>
+                            <BookCardMainPage title={book.name} author={book.author}/>
                         </div>
                     ))}
                 </div>
