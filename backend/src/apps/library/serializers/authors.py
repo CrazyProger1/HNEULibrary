@@ -12,8 +12,8 @@ class AuthorListSerializer(serializers.ModelSerializer):
 class AuthorRetrieveCompactSerializer(serializers.ModelSerializer):
     class Meta:
         model = Author
-        exclude = (
-            "created_at",
-            "updated_at",
-            "created_by",
+        fields = (
+            "id",
+            "first_name",
+            "last_name",
         )
