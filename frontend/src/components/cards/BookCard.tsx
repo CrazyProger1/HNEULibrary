@@ -5,7 +5,7 @@ interface Props {
 }
 
 const BookCard = ({ book }: Props) => {
-  const { title, image, author } = book;
+  const { title, author } = book;
   return (
     <div className="w-64 p-6 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
       <img

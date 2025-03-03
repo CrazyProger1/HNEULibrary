@@ -1,11 +1,10 @@
 import Button from "../buttons/Button.tsx";
 import BookCard from "../cards/BookCard.tsx";
-import { Trans, useTranslation } from "react-i18next";
+import { Trans } from "react-i18next";
 import { IoIosArrowForward } from "react-icons/io";
 import { Book } from "../../types";
 
 const ExploreMainPage = () => {
-  const { t } = useTranslation();
   const booksMainPage: Book[] = [];
   return (
     <div className="my-10">
