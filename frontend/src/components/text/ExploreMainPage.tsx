@@ -1,32 +1,31 @@
-import ExploreButton from "../buttons/ExploreButton.tsx";
+import Button from "../buttons/Button.tsx";
 import BookCard from "../cards/BookCard.tsx";
+import { Trans, useTranslation } from "react-i18next";
+import { IoIosArrowForward } from "react-icons/io";
+import { Book } from "../../types";
 
 const ExploreMainPage = () => {
-        const booksMainPage = [
-            {author: "М. Булгаков", name: "Собачье сердце"},
-            {author: "Ф. Достоевский", name: "Преступление"},
-            {author: "А. Пушкин", name: "Пиковая дама"},
-            {author: "Т. Шевченко", name: "Катерина"},
-        ]
-        return (
-            <div className="my-10">
-                <div className="mx-5 text-2xl font-phil font-bold w-2xl">
-                    Бібліоситет - це розмова з найкращими людьми минулих часів, і до того ж з
-                    найкращими їх думками.
-                </div>
-                <div className="mx-3 mt-5">
-                    <ExploreButton name="Explore our books"/>
-                </div>
-                <div className={"flex gap-5 m-5"}>
-                    {booksMainPage.map((book) => (
-                        <div>
-                            <BookCard title={book.name} authorName={book.author} authorLastName={""}/>
-                        </div>
-                    ))}
-                </div>
-            </div>
-        )
-    }
-;
-
+  const { t } = useTranslation();
+  const booksMainPage: Book[] = [];
+  return (
+    <div className="my-10">
+      <div className="mx-5 text-2xl font-phil font-bold w-2xl">
+        <Trans i18nKey="txt_welcome" />
+      </div>
+      <div className="mx-3 mt-5">
+        <Button key="btn_explore_books">
+          <Trans i18nKey="btn_explore_books" />
+          <IoIosArrowForward />
+        </Button>
+      </div>
+      <div className={"flex gap-5 m-5"}>
+        {booksMainPage.map((book) => (
+          <div>
+            <BookCard book={book} />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
 export default ExploreMainPage;
