@@ -8,10 +8,10 @@ interface Props {
 }
 
 const Layout = ({ children }: Props) => (
-  <div className="h-screen bg-white">
+  <div className="bg-white flex flex-col min-h-screen">
     <ToastContainer />
     <Header />
-    <div className="container">{children}</div>
+    {children}
     <Footer />
   </div>
 );

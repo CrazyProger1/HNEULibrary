@@ -45,10 +45,13 @@ axios.interceptors.response.use(
     return response;
   },
   (error) => {
-    const { data, status } = error.response;
-
     let details = "An unexpected error occurred.";
-    if (status != 500) details = data.errors[0].detail || details;
+    const response = error?.response;
+
+    if (response) {
+      const { data, status } = response;
+      if (status != 500) details = data.errors[0].detail || details;
+    }
 
     console.log(details);
     toast.error(details);

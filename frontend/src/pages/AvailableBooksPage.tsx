@@ -1,24 +1,25 @@
-import BookCard from "../components/cards/BookCard.tsx";
-
 import { observer } from "mobx-react";
 import { libraryStore } from "../stores";
 import { useEffect } from "react";
+import { PageTitle } from "../components/typography";
+import { useTranslation } from "react-i18next";
+import { BooksTable } from "../components/tables";
+import { Container } from "../components/wrappers";
 
 const AvailableBooksPage = () => {
+  const { t } = useTranslation();
+
   useEffect(() => {
     libraryStore.getBooks();
   }, []);
+
   return (
-    <div className="h-max pb-20">
-      <div className="flex justify-center font-phil text-4xl mt-7">
-        Доступні книги
-      </div>
-      <div className="flex flex-wrap gap-5">
-        {libraryStore.books.map((book) => (
-          <BookCard key={book.id} book={book} />
-        ))}
-      </div>
-    </div>
+    <Container>
+      <PageTitle title={t("txt_available_books")} />
+      <div className="mt-5" />
+      <BooksTable books={libraryStore.books} />
+      <div className="mt-5" />
+    </Container>
   );
 };
 
