@@ -3,4 +3,7 @@ export const PAGES = {
   BOOKS: "/books",
   BOOK: "/books/[id]",
   ABOUT: "/about",
+  PROFILE: "/profile",
+  REGISTRATION: "/registration",
+  LOGIN: "/login",
 };
