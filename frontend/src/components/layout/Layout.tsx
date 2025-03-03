@@ -11,7 +11,7 @@ const Layout = ({ children }: Props) => (
   <div className="h-screen bg-white">
     <ToastContainer />
     <Header />
-    {children}
+    <div className="container">{children}</div>
     <Footer />
   </div>
 );
