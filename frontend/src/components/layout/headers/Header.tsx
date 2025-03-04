@@ -14,10 +14,12 @@ const Header = () => {
                         <HeaderButton name={btnName.name} link={btnName.link}/>
                     </div>
                 ))}
-                <button
-                    className={"font-phil text-xl text-bold p-2 m-3 w-max cursor-pointer hover:bg-white rounded-lg"}>
-                    Мій кабінет
-                </button>
+                <a href={"/profile"}>
+                    <button
+                        className={"font-phil text-xl text-bold p-2 m-3 w-max cursor-pointer hover:bg-white rounded-lg"}>
+                        Мій кабінет
+                    </button>
+                </a>
             </div>
         </div>
     );
