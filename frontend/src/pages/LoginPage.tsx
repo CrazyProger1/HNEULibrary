@@ -15,7 +15,7 @@ const LoginPage = () => {
         e.preventDefault();
         authStore
             .login(formData.username, formData.password)
-            .then(() => console.log(authStore.accessToken));
+            .then(() => console.log("JWT: " + authStore.accessToken));
         console.log("Stored Data:", formData); // Just storing in variables
     };
 
@@ -24,14 +24,15 @@ const LoginPage = () => {
             <form onSubmit={handleSubmit} className="space-y-5" action="#">
                 <h5 className="text-2xl font-bold font-phil text-center text-gray-900">Увійти до системи</h5>
                 <div>
-                    <label htmlFor="username" className="block mb-2 text-sm font-semibold text-gray-900 dark:text-white">
+                    <label htmlFor="username"
+                           className="block mb-2 text-sm font-semibold text-gray-900 dark:text-white">
                         Ваш імейл
                     </label>
                     <input name={"username"}
-                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                        placeholder="name@company.com" required
-                        value={formData.username}
-                        onChange={handleChange}/>
+                           className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                           placeholder="name@company.com" required
+                           value={formData.username}
+                           onChange={handleChange}/>
                 </div>
                 <div>
                     <label htmlFor="password"

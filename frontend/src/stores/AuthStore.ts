@@ -6,7 +6,6 @@ class AuthStore {
     currentUser?: User;
     accessToken?: string;
     refreshToken?: string;
-    isAuthorized: boolean = false;
 
     constructor() {
         makeAutoObservable(this);
@@ -24,18 +23,19 @@ class AuthStore {
         const {access, refresh} = await login(username, password);
         this.accessToken = access;
         this.refreshToken = refresh;
-        this.isAuthorized = true;
+        if (this.accessToken) {
+            localStorage.setItem("accessToken", this.accessToken);
+        } else {
+            localStorage.removeItem("accessToken");
+        }
     }
 
-
-    async register(username: string, password: string, email: string, name: string, phone: string, address: string) {
-        const {access, refresh} = await register(username, password, email, name, phone, address);
-        this.accessToken = access;
-        this.refreshToken = refresh;
-        this.isAuthorized = true;
-    }
+    // async register(username: string, password: string, email: string, name: string, phone: string, address: string) {
+    //     const {access, refresh} = await register(username, password, email, name, phone, address);
+    // }
 
     async logout() {
+        localStorage.removeItem("accessToken");
     }
 }
 
