@@ -1,7 +1,10 @@
 import React, {useState} from "react";
 import {authStore} from "../stores";
+import {useNavigate} from "react-router-dom";
 
 const LoginPage = () => {
+    const navigate = useNavigate();
+
     const [formData, setFormData] = useState<{ username: string; password: string }>({
         username: "",
         password: "",
@@ -15,7 +18,12 @@ const LoginPage = () => {
         e.preventDefault();
         authStore
             .login(formData.username, formData.password)
-            .then(() => console.log("JWT: " + authStore.accessToken));
+            .then(() => console.log("JWT: " + authStore.accessToken))
+            .finally(() => {
+                if (authStore.accessToken) {
+                    navigate("/profile");
+                }
+            })
         console.log("Stored Data:", formData); // Just storing in variables
     };
 

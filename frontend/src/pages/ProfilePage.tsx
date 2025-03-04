@@ -2,6 +2,7 @@ import {Navigate} from "react-router-dom";
 import {observer} from "mobx-react";
 import {useEffect, useState} from "react";
 import UserStore from "../stores/UserStore.ts";
+import AuthStore from "../stores/AuthStore.ts";
 
 const ProfilePage = observer(() => {
 
@@ -38,6 +39,10 @@ const ProfilePage = observer(() => {
         }
     }
 
+    const handleLogoutClick = () => {
+        AuthStore.logout().then(() => console.log("Logout successful"));
+    }
+
     // console.log("isTokenPresent: " + isTokenPresent)
     // console.log("isLoading: " + isLoading)
 
@@ -46,21 +51,36 @@ const ProfilePage = observer(() => {
             <div className={"flex justify-center mt-10 font-phil text-4xl"}>
                 Мій профайл
             </div>
-            <div className={"flex mt-5 mx-10 font-phil text-xl"}>
-                Юзернейм: {UserStore.currentUser.username}
-            </div>
-            <div className={"flex mt-5 mx-10 font-phil text-xl"}>
-                Ім'я: {UserStore.currentUser.first_name}
-            </div>
-            <div className={"flex mt-5 mx-10 font-phil text-xl"}>
-                Прізвище: {UserStore.currentUser.last_name}
-            </div>
-            <div className={"flex mt-5 mx-10 font-phil text-xl"}>
-                Імейл: {UserStore.currentUser.email}
+            <div className={"flex flex-col gap-y-5 mx-10 font-phil text-xl"}>
+                <div className={""}>
+                    Юзернейм: {UserStore.currentUser.username}
+                </div>
+                <div className={""}>
+                    Ім'я: {UserStore.currentUser.first_name}
+                </div>
+                <div className={""}>
+                    Прізвище: {UserStore.currentUser.last_name}
+                </div>
+                <div className={""}>
+                    Імейл: {UserStore.currentUser.email}
+                </div>
             </div>
             <div className={"flex justify-center mt-10 font-phil text-4xl"}>
                 Мої книги
             </div>
+            <div className={"flex flex-col justify-center items-center font-phil"}>
+                <div className={"mt-10 text-4xl"}>
+                    Вихід з профілю
+                </div>
+                <div className={"mt-5 text-xl"}>
+                    Якщо ви бажаєте вийти з профілю, натисніть кнопку нижче
+                </div>
+                <button onClick={handleLogoutClick}
+                        className={"my-5 p-3 w-max h-12 text-white bg-red-500 hover:bg-red-700 font-bold rounded-lg active:ring-3 active:ring-sky-400 cursor-pointer"}>
+                    Вийти з профілю
+                </button>
+            </div>
+
         </div>
     )
 });

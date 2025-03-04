@@ -1,11 +1,16 @@
 import {makeAutoObservable} from "mobx";
 import {User} from "../types";
 import {login, register} from "../services/auth.ts";
+import {RegisteredUser} from "../types/users.ts";
 
 class AuthStore {
     currentUser?: User;
     accessToken?: string;
     refreshToken?: string;
+    registeredUser: RegisteredUser = {
+        username: "",
+        email: ""
+    };
 
     constructor() {
         makeAutoObservable(this);
@@ -30,9 +35,11 @@ class AuthStore {
         }
     }
 
-    // async register(username: string, password: string, email: string, name: string, phone: string, address: string) {
-    //     const {access, refresh} = await register(username, password, email, name, phone, address);
-    // }
+    async register(username: string, password: string, email: string, first_name: string, last_name: string, phone: string, address: string) {
+        const {nameUser, mail} = await register(username, password, email, first_name, last_name, phone, address);
+        this.registeredUser.username = nameUser;
+        this.registeredUser.email = mail;
+    }
 
     async logout() {
         localStorage.removeItem("accessToken");

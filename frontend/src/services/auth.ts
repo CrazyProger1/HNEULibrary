@@ -16,18 +16,20 @@ export const login = async (
 export const register = async (
     username: string,
     password: string,
+    email: string,
     phone: string,
     address: string,
-    name: string,
-    surname?: string,
+    first_name: string,
+    last_name: string,
 ): Promise<RegisterResponse> => {
-    const response = await axios.post(URLS.TOKENS, {
+    const response = await axios.post(URLS.USERS, {
         username: username,
         password: password,
+        email: email,
         phone: phone,
         address: address,
-        name: name,
-        surname: surname,
+        name: first_name,
+        surname: last_name,
     })
     return response.data as RegisterResponse;
 }

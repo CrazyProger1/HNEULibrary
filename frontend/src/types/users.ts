@@ -1,8 +1,13 @@
 export type User = {
-  id: number;
-  username: string;
-  first_name: string;
-  last_name: string;
-  email?: string;
-  phone?: string;
+    id: number;
+    username: string;
+    first_name: string;
+    last_name: string;
+    email?: string;
+    phone?: string;
 };
+
+export type RegisteredUser = {
+    username: string;
+    email: string;
+}
