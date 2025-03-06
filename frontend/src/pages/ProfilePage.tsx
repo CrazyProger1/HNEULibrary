@@ -70,14 +70,14 @@ const ProfilePage = observer(() => {
             </div>
             <div className={"flex flex-col justify-center items-center font-phil"}>
                 <div className={"mt-10 text-4xl"}>
-                    Вихід з профілю
+                    Вихід з аккаунту
                 </div>
                 <div className={"mt-5 text-xl"}>
-                    Якщо ви бажаєте вийти з профілю, натисніть кнопку нижче
+                    Якщо ви бажаєте вийти з аккаунту, натисніть кнопку нижче
                 </div>
                 <button onClick={handleLogoutClick}
                         className={"my-5 p-3 w-max h-12 text-white bg-red-500 hover:bg-red-700 font-bold rounded-lg active:ring-3 active:ring-sky-400 cursor-pointer"}>
-                    Вийти з профілю
+                    Вийти з аккаунту
                 </button>
             </div>
 

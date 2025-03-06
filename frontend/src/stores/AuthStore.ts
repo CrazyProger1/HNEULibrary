@@ -1,6 +1,6 @@
 import { makeAutoObservable } from "mobx";
 import { User } from "../types";
-import { login, register } from "../services/auth.ts";
+import { login, register } from "../services";
 
 class AuthStore {
   currentUser?: User;

@@ -1,2 +1,2 @@
 export { getBooks, getBook } from "./books.ts";
-export { login } from "./auth.ts";
+export { login, register } from "./auth.ts";
