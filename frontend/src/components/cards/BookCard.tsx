@@ -1,21 +1,13 @@
-import { Book, Discount } from "../../types";
+import { Book } from "../../types";
 import { PAGES } from "../../constants";
+import {calculatePricePerDay} from "../../utils/books.ts";
 
 interface Props {
   book: Book;
 }
 
 const BookCard = ({ book }: Props) => {
-  const { title, image, author, rental_price, discounts } = book;
-
-  let totalPrice = Number(rental_price);
-  let totalDiscount = 0;
-
-  discounts.forEach((discount: Discount) => {
-    totalDiscount += discount.discount;
-  });
-
-  totalPrice = totalPrice - totalPrice * (totalDiscount / 100);
+  const { title, image, author } = book;
 
   return (
     <a
@@ -33,7 +25,7 @@ const BookCard = ({ book }: Props) => {
       <p className="mb-3 font-normal  text-gray-700 dark:text-gray-400">
         {author.first_name} {author.last_name}
       </p>
-      <div>{totalPrice}₴ / day</div>
+      <div>{calculatePricePerDay(book)}₴ / day</div>
     </a>
   );
 };

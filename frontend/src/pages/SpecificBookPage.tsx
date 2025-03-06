@@ -1,10 +1,13 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { observer } from "mobx-react";
 import { useParams } from "react-router-dom";
 import { libraryStore } from "../stores";
+import { calculatePricePerPeriod } from "../utils/books.ts";
 
 const SpecificBookPage = () => {
   let { id } = useParams();
+
+  const [period, setPeriod] = useState<number>(0);
 
   useEffect(() => {
     libraryStore.getBookById(Number(id));
@@ -29,6 +32,16 @@ const SpecificBookPage = () => {
         <div className={"flex flex-col gap-y-2"}>
           <div>Ціна прокату: {rental_price} грн.</div>
           <div>Доступно копій: {available_copies} шт.</div>
+          <div>
+            <label className="block mb-2 text-sm font-semibold text-gray-900">
+              Введіть період (у днях):
+            </label>
+            <input
+              type="number"
+              onChange={(e) => setPeriod(Number(e.target.value))}
+            />
+            <div>{calculatePricePerPeriod(book, period)}</div>
+          </div>
         </div>
       </div>
     </div>

@@ -18,7 +18,9 @@ const ProfilePage = observer(() => {
   const currentUser = authStore.currentUser;
 
   const handleLogoutClick = () => {
-    authStore.logout();
+    authStore.logout().then(() => {
+      navigate(PAGES.LOGIN);
+    });
   };
 
   return (
