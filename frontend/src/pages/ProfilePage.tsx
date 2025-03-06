@@ -1,27 +1,22 @@
 import { useNavigate } from "react-router-dom";
 import { observer } from "mobx-react";
-import { useEffect, useState } from "react";
 import { authStore } from "../stores";
 
 import { PAGES } from "../constants";
-import { User } from "../types";
 
 const ProfilePage = observer(() => {
   const navigate = useNavigate();
-  const [currentUser, setCurrentUser] = useState<User | undefined>(undefined);
-
-  useEffect(() => {
-    authStore.getCurrentUser().then((user) => {
-      if (!user) navigate(PAGES.LOGIN);
-      setCurrentUser(user);
-    });
-  }, []);
 
   const handleLogoutClick = () => {
     authStore.logout().then(() => {
       navigate(PAGES.LOGIN);
     });
   };
+  const currentUser = authStore.currentUser;
+
+  if (!currentUser) {
+    navigate(PAGES.LOGIN);
+  }
 
   return (
     <div>
