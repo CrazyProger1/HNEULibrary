@@ -285,3 +285,6 @@ msgstr "Метадата"
 
 msgid "Media"
 msgstr "Медіа"
+
+msgid "address"
+msgstr "адреса"
