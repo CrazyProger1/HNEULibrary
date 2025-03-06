@@ -9,7 +9,7 @@ const RegistrationPage = () => {
   const handleSubmit = async (data: RegistrationFields) => {
     try {
       await authStore.register({ ...data, username: data.email });
-      if (authStore.accessToken) navigate(PAGES.LOGIN);
+      navigate(PAGES.LOGIN);
     } catch (err) {
       console.error("Login error:", err);
     }

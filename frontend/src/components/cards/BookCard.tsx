@@ -19,7 +19,7 @@ const BookCard = ({ book }: Props) => {
 
   return (
     <a
-      href={PAGES.BOOK.replace("[id]", String(book.id))}
+      href={PAGES.BOOK.replace(":id", String(book.id))}
       className="p-6 bg-white flex flex-col hover:bg-gray-100 hover:cursor-pointer border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700"
     >
       <img

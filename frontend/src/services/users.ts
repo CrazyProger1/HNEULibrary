@@ -1,14 +1,13 @@
-import {axios} from "./api.ts";
-import {URLS} from "../constants";
-import {UserResponse} from "../types/auth.ts";
+import { axios } from "./api.ts";
+import { URLS } from "../constants";
+import { SuccessfulResponse, User } from "../types";
 
-export const getUser = async (
-    jwt: string,
-): Promise<UserResponse> => {
-    const response = await axios.get(URLS.USER_ME, {
-        headers: {
-            Authorization: `Bearer ${jwt}`,
-        }
-    });
-    return response.data as UserResponse;
+type UserResponse = User & SuccessfulResponse;
+
+export const getUser = async (): Promise<UserResponse> => {
+  const response = await axios.get(URLS.USER_ME);
+  return {
+    ...response.data,
+    success: true,
+  };
 };

@@ -1,7 +1,6 @@
 import ax from "axios";
 import { API_URL } from "../constants/api.ts";
 import { toast } from "react-toastify";
-import { authStore } from "../stores";
 
 export const axios = ax.create({
   baseURL: API_URL,
@@ -9,9 +8,7 @@ export const axios = ax.create({
 
 axios.interceptors.request.use(
   (config) => {
-    // TODO: token getting from store / local storage / cookies/ smth
-    const token = authStore.accessToken;
-
+    const token = localStorage.getItem("accessToken");
     if (token) config.headers.Authorization = `Bearer ${token}`;
 
     return config;

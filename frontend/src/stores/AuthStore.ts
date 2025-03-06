@@ -1,24 +1,30 @@
 import { makeAutoObservable } from "mobx";
 import { LoginFields, RegistrationFields, User } from "../types";
 import { login, register } from "../services";
+import { getUser } from "../services";
 
 class AuthStore {
   currentUser?: User;
-  accessToken?: string;
-  refreshToken?: string;
+  isAuthenticated: boolean = false;
 
   constructor() {
     makeAutoObservable(this);
   }
 
+  async getCurrentUser(): Promise<User | undefined> {
+    if (localStorage.getItem("accessToken")) {
+      this.currentUser = await getUser();
+      return this.currentUser;
+    }
+  }
+
   async login(data: LoginFields) {
-    const { access, refresh } = await login(data);
-    this.accessToken = access;
-    this.refreshToken = refresh;
-    if (this.accessToken) {
-      localStorage.setItem("accessToken", this.accessToken);
+    const { access } = await login(data);
+    this.isAuthenticated = true;
+    if (access) {
+      localStorage.setItem("accessToken", access);
     } else {
-      localStorage.removeItem("accessToken");
+      await this.logout();
     }
   }
 
@@ -28,6 +34,7 @@ class AuthStore {
 
   async logout() {
     localStorage.removeItem("accessToken");
+    this.isAuthenticated = false;
   }
 }
 
