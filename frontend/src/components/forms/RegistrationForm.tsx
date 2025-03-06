@@ -7,10 +7,22 @@ import { RegistrationFields } from "../../types";
 const RegistrationSchema = z.object({
   first_name: z.string().min(2, "Ім'я повинно містити не менше 2 символів"),
   last_name: z.string().min(2, "Прізвище повинно містити не менше 2 символів"),
-  phone: z.string().regex(/^\d{10}$/, "Введіть коректний номер (10 цифр)").optional(),
-  address: z.string().min(5, "Адреса повинна містити не менше 5 символів").optional(),
+  phone: z
+    .string()
+    .regex(/^\d{10}$/, "Введіть коректний номер (10 цифр)")
+    .optional()
+    .or(z.literal("")),
+  address: z
+    .string()
+    .min(5, "Адреса повинна містити не менше 5 символів")
+    .optional()
+    .or(z.literal("")),
   email: z.string().email("Введіть коректний імейл"),
-  username: z.string().min(3, "Нікнейм має містити не менше 3 символів").optional(),
+  username: z
+    .string()
+    .min(3, "Нікнейм має містити не менше 3 символів")
+    .optional()
+    .or(z.literal("")),
   password: z.string().min(6, "Пароль має містити не менше 6 символів"),
 });
 
