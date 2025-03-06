@@ -14,6 +14,7 @@ class AuthStore {
   async getCurrentUser(): Promise<User | undefined> {
     if (localStorage.getItem("accessToken")) {
       this.currentUser = await getUser();
+      this.isAuthenticated = true;
       return this.currentUser;
     }
   }
