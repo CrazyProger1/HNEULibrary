@@ -30,9 +30,9 @@ const ProfilePage = observer(() => {
         Мій профайл
       </div>
       <div className={"flex flex-col gap-y-5 mx-10 font-phil text-xl"}>
-        <div>Ім'я: {currentUser?.first_name} || Loading...</div>
-        <div>Прізвище: {currentUser?.last_name} || Loading...</div>
-        <div>Імейл: {currentUser?.email} || Loading...</div>
+        <div>Ім'я: {currentUser?.first_name || "Loading..."} </div>
+        <div>Прізвище: {currentUser?.last_name || "Loading..."}</div>
+        <div>Імейл: {currentUser?.email || "Loading..."}</div>
       </div>
       <div className={"flex justify-center mt-10 font-phil text-4xl"}>
         Мої книги
