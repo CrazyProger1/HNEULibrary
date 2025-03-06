@@ -1,8 +1,12 @@
+import logging
+
 from rest_framework import viewsets, generics, permissions, response, status
 from rest_framework.decorators import action
 
 from src.apps.accounts.serializers import UserRetrieveSerializer, UserCreateSerializer
 from src.apps.accounts.services.db import get_all_users, create_user
+
+logger = logging.getLogger(__name__)
 
 
 class UserViewSet(
@@ -22,7 +26,7 @@ class UserViewSet(
         return self.request.user
 
     def create(self, request, *args, **kwargs):
-        print(request.data, flush=True)
+        logger.error("Data %s", request.data)
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         data = serializer.data
