@@ -20,7 +20,7 @@ axios.interceptors.request.use(
 
 axios.interceptors.request.use(
   (config) => {
-    config.headers["Accept-Language"] = "en";
+    config.headers["Accept-Language"] = "uk";
 
     return config;
   },

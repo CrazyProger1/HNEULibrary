@@ -25,7 +25,7 @@ const BookCard = ({ book }: Props) => {
       <p className="mb-3 font-normal  text-gray-700 dark:text-gray-400">
         {author.first_name} {author.last_name}
       </p>
-      <div>{calculatePricePerDay(book)}₴ / day</div>
+      <div>{calculatePricePerDay(book)}₴ / день</div>
     </a>
   );
 };

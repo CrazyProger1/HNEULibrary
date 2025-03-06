@@ -8,7 +8,7 @@ export const fallbackNS = "ns1";
 
 i18next.use(initReactI18next).init({
   debug: true,
-  fallbackLng: "en",
+  fallbackLng: "uk",
   defaultNS,
   fallbackNS,
   resources: {
