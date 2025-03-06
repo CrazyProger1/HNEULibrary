@@ -19,7 +19,18 @@ const SpecificBookPage = () => {
   }, []);
 
   const book = libraryStore.book;
-  const { image, author, available_copies, rental_price, genre, title } = book;
+  const {
+    image,
+    author,
+    available_copies,
+    rental_price,
+    deposit_price,
+    genre,
+    title,
+  } = book;
+  const totalDiscount = calculateDiscount(book);
+  const perDayPrice = calculatePricePerDay(book);
+  const perPeriodPrice = calculatePricePerPeriod(book, period);
 
   return (
     <div className={"flex justify-start items-start font-phil m-10"}>
@@ -36,8 +47,9 @@ const SpecificBookPage = () => {
         <div className={"text-xl font-medium"}>Жанр: {genre.name}</div>
         <div className={"flex flex-col gap-y-2"}>
           <div>Ціна прокату: {rental_price} грн.</div>
-          <div>Персональна ціна прокату: {calculatePricePerDay(book)} грн.</div>
+          <div>Персональна ціна прокату: {perDayPrice} грн.</div>
           <div>Доступно копій: {available_copies} шт.</div>
+          <div>Застава: {deposit_price} грн.</div>
           <div>
             <label className="block mt-4 text-sm font-semibold text-gray-900">
               Введіть період (у днях):
@@ -47,8 +59,11 @@ const SpecificBookPage = () => {
               onChange={(e) => setPeriod(Number(e.target.value))}
             />
             <div>
-              ({rental_price} грн. - {calculateDiscount(book)}%) * {period} дн. ={" "}
-              {calculatePricePerPeriod(book, period)} грн.
+              ({rental_price} грн. - {totalDiscount}%) * {period} дн. ={" "}
+              {perPeriodPrice} грн.
+              <span className="text-xs text-red-500 ml-1">
+                *без урахування застави
+              </span>
             </div>
           </div>
         </div>
