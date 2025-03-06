@@ -9,8 +9,9 @@ const ProfilePage = observer(() => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    authStore.getCurrentUser();
-    if (!authStore.isAuthenticated) navigate(PAGES.LOGIN);
+    authStore.getCurrentUser().then(() => {
+      if (!authStore.isAuthenticated) navigate(PAGES.LOGIN);
+    });
   }, [authStore.isAuthenticated]);
 
   const handleLogoutClick = () => {
