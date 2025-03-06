@@ -28,8 +28,11 @@ class UserViewSet(
     def create(self, request, *args, **kwargs):
         logger.error("Data %s", request.data)
         serializer = self.get_serializer(data=request.data)
+        logger.error("SERIALIZER %s %s ", self.action, serializer)
         serializer.is_valid(raise_exception=True)
         data = serializer.data
+
+        logger.warning("DATA %s", data)
 
         create_user(
             username=data["username"],
