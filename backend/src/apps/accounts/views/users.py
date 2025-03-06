@@ -22,6 +22,7 @@ class UserViewSet(
         return self.request.user
 
     def create(self, request, *args, **kwargs):
+        print(request.data, flush=True)
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         data = serializer.data
