@@ -3,9 +3,15 @@ import { observer } from "mobx-react";
 import { authStore } from "../stores";
 
 import { PAGES } from "../constants";
+import { useEffect } from "react";
 
 const ProfilePage = observer(() => {
   const navigate = useNavigate();
+
+  useEffect(() => {
+    authStore.getCurrentUser();
+    if (!authStore.isAuthenticated) navigate(PAGES.LOGIN);
+  }, [authStore.isAuthenticated]);
 
   const handleLogoutClick = () => {
     authStore.logout().then(() => {
@@ -13,10 +19,6 @@ const ProfilePage = observer(() => {
     });
   };
   const currentUser = authStore.currentUser;
-
-  if (!currentUser) {
-    navigate(PAGES.LOGIN);
-  }
 
   return (
     <div>
