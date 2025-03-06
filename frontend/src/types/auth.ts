@@ -4,8 +4,8 @@ export type LoginResponse = {
 };
 
 export type RegisterResponse = {
-  nameUser: string;
-  mail: string;
+  username: string;
+  email: string;
 }
 
 export type UserResponse = {
