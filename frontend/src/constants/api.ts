@@ -1,5 +1,5 @@
 export const API_URL =
-  import.meta.env.API_URL || "http://45.137.155.123/api/v1/";
+  import.meta.env.API_URL || "https://45.137.155.123/api/v1/";
 
 export const URLS = {
   USERS: "users/",
