@@ -1,5 +1,5 @@
 export const API_URL =
-  import.meta.env.API_URL || "https://justalibrary.crazyproger1.com//api/v1/";
+  import.meta.env.API_URL || "https://justalibrary.crazyproger1.com/api/v1/";
 
 export const URLS = {
   USERS: "users/",
