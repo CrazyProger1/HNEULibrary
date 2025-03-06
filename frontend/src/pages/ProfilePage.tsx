@@ -1,21 +1,22 @@
 import { useNavigate } from "react-router-dom";
 import { observer } from "mobx-react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { authStore } from "../stores";
 
 import { PAGES } from "../constants";
+import { User } from "../types";
 
 const ProfilePage = observer(() => {
   const navigate = useNavigate();
+  const [currentUser, setCurrentUser] = useState<User | undefined>(undefined);
 
   useEffect(() => {
     if (!authStore.isAuthenticated)
       authStore.getCurrentUser().then((user) => {
         if (!user) navigate(PAGES.LOGIN);
+        setCurrentUser(user);
       });
   }, [authStore.isAuthenticated]);
-
-  const currentUser = authStore.currentUser;
 
   const handleLogoutClick = () => {
     authStore.logout().then(() => {
@@ -29,9 +30,9 @@ const ProfilePage = observer(() => {
         Мій профайл
       </div>
       <div className={"flex flex-col gap-y-5 mx-10 font-phil text-xl"}>
-        <div>Ім'я: {currentUser?.first_name}</div>
-        <div>Прізвище: {currentUser?.last_name}</div>
-        <div>Імейл: {currentUser?.email}</div>
+        <div>Ім'я: {currentUser?.first_name} || Loading...</div>
+        <div>Прізвище: {currentUser?.last_name} || Loading...</div>
+        <div>Імейл: {currentUser?.email} || Loading...</div>
       </div>
       <div className={"flex justify-center mt-10 font-phil text-4xl"}>
         Мої книги
