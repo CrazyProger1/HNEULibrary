@@ -11,11 +11,10 @@ const ProfilePage = observer(() => {
   const [currentUser, setCurrentUser] = useState<User | undefined>(undefined);
 
   useEffect(() => {
-    if (!authStore.isAuthenticated)
-      authStore.getCurrentUser().then((user) => {
-        if (!user) navigate(PAGES.LOGIN);
-        setCurrentUser(user);
-      });
+    authStore.getCurrentUser().then((user) => {
+      if (!user) navigate(PAGES.LOGIN);
+      setCurrentUser(user);
+    });
   }, []);
 
   const handleLogoutClick = () => {
