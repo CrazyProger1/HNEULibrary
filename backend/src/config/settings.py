@@ -21,7 +21,7 @@ DEBUG = config(
 
 ALLOWED_HOSTS = config(
     "ALLOWED_HOSTS",
-    default="45.137.155.123",
+    default="justalibrary.crazyproger1.com",
     cast=Csv(),
 )
 
