@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
+from src.apps.library.enums import FineReason
 from src.utils.db.models import TimestampModelMixin, CreatedByModelMixin
 
 
@@ -20,10 +21,18 @@ class Fine(CreatedByModelMixin, TimestampModelMixin, models.Model):
         verbose_name=_("amount"),
         help_text=_("The amount of money reader should pay."),
     )
-    reason = models.TextField(
-        verbose_name=_("reason"),
+    reason = models.CharField(
+        max_length=20,
+        choices=FineReason,
+        default=FineReason.DAMAGED,
         null=True,
         blank=True,
+        verbose_name=_("reason"),
+    )
+    description = models.TextField(
+        null=True,
+        blank=True,
+        verbose_name=_("description"),
     )
     is_compensated = models.BooleanField(
         default=False,
