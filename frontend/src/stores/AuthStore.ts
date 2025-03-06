@@ -1,5 +1,5 @@
 import { makeAutoObservable } from "mobx";
-import { User } from "../types";
+import { LoginFields, RegistrationFields, User } from "../types";
 import { login, register } from "../services";
 
 class AuthStore {
@@ -11,8 +11,8 @@ class AuthStore {
     makeAutoObservable(this);
   }
 
-  async login(username: string, password: string) {
-    const { access, refresh } = await login(username, password);
+  async login(data: LoginFields) {
+    const { access, refresh } = await login(data);
     this.accessToken = access;
     this.refreshToken = refresh;
     if (this.accessToken) {
@@ -22,24 +22,8 @@ class AuthStore {
     }
   }
 
-  async register(
-    username: string,
-    password: string,
-    email: string,
-    first_name: string,
-    last_name: string,
-    phone: string,
-    address: string,
-  ) {
-    await register(
-      username,
-      password,
-      email,
-      first_name,
-      last_name,
-      phone,
-      address,
-    );
+  async register(data: RegistrationFields) {
+    await register(data);
   }
 
   async logout() {

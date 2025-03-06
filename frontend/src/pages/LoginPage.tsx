@@ -6,9 +6,9 @@ import { PAGES } from "../constants";
 
 const LoginPage = () => {
   const navigate = useNavigate();
-  const onSubmit = async ({ username, password }: LoginFields) => {
+  const handleSubmit = async (data: LoginFields) => {
     try {
-      await authStore.login(username, password);
+      await authStore.login(data);
       if (authStore.accessToken) navigate(PAGES.PROFILE);
     } catch (err) {
       console.error("Login error:", err);
@@ -16,7 +16,7 @@ const LoginPage = () => {
   };
   return (
     <div className="flex justify-center mt-10 mb-5">
-      <LoginForm onSubmit={onSubmit} />
+      <LoginForm onSubmit={handleSubmit} />
     </div>
   );
 };
