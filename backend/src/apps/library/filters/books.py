@@ -13,8 +13,8 @@ class BookFilter(filters.FilterSet):
             ("id", "id"),
             ("created_at", "created_at"),
             ("updated_at", "updated_at"),
-            ("built_at", "built_at"),
-            ("abandoned_at", "abandoned_at"),
+            ("published_at", "published_at"),
+            ("copies", "copies"),
         ),
     )
 
