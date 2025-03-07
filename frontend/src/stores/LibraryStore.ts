@@ -1,8 +1,7 @@
 import { makeAutoObservable } from "mobx";
-import { Book } from "../types";
-import { getBook, getBooks } from "../services";
+import { Book, BookFilters } from "../types";
+import { getBook, getBooks, getRentals } from "../services";
 import { Rental } from "../types";
-import { getRentals } from "../services/books.ts";
 
 export class LibraryStore {
   books: Book[] = [];
@@ -30,9 +29,8 @@ export class LibraryStore {
   constructor() {
     makeAutoObservable(this);
   }
-
-  async getBooks(): Promise<Book[]> {
-    const response = await getBooks();
+  async getBooks(filters: BookFilters = {}): Promise<Book[]> {
+    const response = await getBooks(filters);
     this.books = response.results;
     return this.books;
   }

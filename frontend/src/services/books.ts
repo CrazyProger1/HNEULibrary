@@ -1,4 +1,4 @@
-import { Book, PaginatedResponse } from "../types";
+import { Book, BookFilters, PaginatedResponse } from "../types";
 
 import { URLS } from "../constants";
 import { axios } from "./api.ts";
@@ -8,9 +8,11 @@ type BooksResponse = PaginatedResponse<Book>;
 type BookResponse = Book;
 type RentalsResponse = PaginatedResponse<Rental>;
 
-export const getBooks = async (): Promise<BooksResponse> => {
+export const getBooks = async (
+  filters: BookFilters = {},
+): Promise<BooksResponse> => {
   const url = URLS.BOOKS;
-  const response = await axios.get(url);
+  const response = await axios.get(url, { params: filters });
 
   return {
     success: true,
