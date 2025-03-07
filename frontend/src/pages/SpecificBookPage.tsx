@@ -43,7 +43,7 @@ const SpecificBookPage = () => {
       <div className={"flex ml-10 flex-col gap-y-4"}>
         <div className={"text-4xl font-bold"}>{title}</div>
         <div className={"text-2xl font-medium"}>
-          {author.first_name} {author.last_name}
+          {author?.first_name} {author?.last_name}
         </div>
         <div className={"text-xl font-medium"}>Жанр: {genre.name}</div>
         <div className={"flex flex-col gap-y-2"}>

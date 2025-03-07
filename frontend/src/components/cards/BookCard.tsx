@@ -24,7 +24,7 @@ const BookCard = ({ book }: Props) => {
         <div className={"flex flex-col gap-y-2"}>
           <BookTitle title={title} />
           <p className="font-normal font-phil  text-gray-700 dark:text-gray-400">
-            {author.first_name} {author.last_name}
+            {author?.first_name} {author?.last_name}
           </p>
           <div className="flex flex-row font-phil">
             {calculatePricePerDay(book)} грн. / день{" "}
