@@ -23,13 +23,13 @@ class Rental(CreatedByModelMixin, TimestampModelMixin, models.Model):
         blank=False,
         verbose_name=_("book"),
     )
-    started_at = models.DateTimeField(
+    started_at = models.DateField(
         null=False,
         blank=False,
         default=timezone.now,
         verbose_name=_("start at"),
     )
-    ended_at = models.DateTimeField(
+    ended_at = models.DateField(
         null=False,
         blank=False,
         verbose_name=_("end at"),
