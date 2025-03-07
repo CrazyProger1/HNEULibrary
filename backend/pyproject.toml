@@ -21,6 +21,7 @@ django-modeltranslation = "^0.19.12"
 djangorestframework-simplejwt = {extras = ["crypto"], version = "^5.5.0"}
 babel = "^2.17.0"
 django-cors-headers = "^4.7.0"
+psycopg = {extras = ["binary"], version = "^3.2.5"}
 
 [build-system]
 requires = ["poetry-core"]
