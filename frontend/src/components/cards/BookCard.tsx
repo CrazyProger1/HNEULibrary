@@ -8,7 +8,7 @@ interface Props {
 
 const BookCard = ({book}: Props) => {
     const {title, image, author, discounts} = book;
-
+    console.log("Your discount is: " + discounts.map((discount) => discount.discount))
     return (
         <a
             href={PAGES.BOOK.replace(":id", String(book.id))}
