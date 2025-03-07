@@ -21,3 +21,9 @@ class CustomUser(AbstractUser):
         blank=True,
         verbose_name=_("phone"),
     )
+    address = models.CharField(
+        max_length=250,
+        null=True,
+        blank=True,
+        verbose_name=_("address")
+    )

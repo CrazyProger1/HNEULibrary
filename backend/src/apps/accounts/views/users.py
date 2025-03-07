@@ -1,8 +1,12 @@
+import logging
+
 from rest_framework import viewsets, generics, permissions, response, status
 from rest_framework.decorators import action
 
 from src.apps.accounts.serializers import UserRetrieveSerializer, UserCreateSerializer
 from src.apps.accounts.services.db import get_all_users, create_user
+
+logger = logging.getLogger(__name__)
 
 
 class UserViewSet(

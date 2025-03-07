@@ -9,6 +9,7 @@ const LoginPage = () => {
   const handleSubmit = async (data: LoginFields) => {
     try {
       await authStore.login(data);
+      await authStore.getCurrentUser()
       if (authStore.isAuthenticated) navigate(PAGES.PROFILE);
     } catch (err) {
       console.error("Login error:", err);

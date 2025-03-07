@@ -285,3 +285,15 @@ msgstr "Метадата"
 
 msgid "Media"
 msgstr "Медіа"
+
+msgid "address"
+msgstr "адреса"
+
+msgid "Lost"
+msgstr "Загублена"
+
+msgid "Damaged"
+msgstr "Пошкоджена"
+
+msgid "description"
+msgstr "опис"

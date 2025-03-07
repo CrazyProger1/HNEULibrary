@@ -9,6 +9,7 @@ class FineListSerializer(serializers.ModelSerializer):
         fields = (
             "id",
             "amount",
+            "description",
             "reason",
             "is_compensated",
         )

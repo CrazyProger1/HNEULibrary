@@ -8,3 +8,8 @@ class RentalStatus(models.TextChoices):
     OVERDUE = "OVERDUE", _("Overdue")
     LOST = "LOST", _("Lost")
     DAMAGED = "DAMAGED", _("Damaged")
+
+
+class FineReason(models.TextChoices):
+    DAMAGED = "DAMAGED", _("Damaged")
+    LOST = "LOST", _("Lost")

@@ -42,6 +42,7 @@ class FineAdmin(ModelAdmin):
                     "rental",
                     "amount",
                     "reason",
+                    "description",
                 ),
             },
         ),
