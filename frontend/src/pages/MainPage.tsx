@@ -3,6 +3,7 @@ import {useEffect} from "react";
 import {libraryStore} from "../stores";
 import BookCard from "../components/cards/BookCard.tsx";
 import {Trans} from "react-i18next";
+import { observer } from "mobx-react";
 
 const MainPage = () => {
     useEffect(() => {
@@ -16,7 +17,7 @@ const MainPage = () => {
             </div>
             <div className={"mx-10 mt-5"}>
                 <div className="flex flex-wrap justify-center gap-5">
-                    {libraryStore.books.slice(0, 4).map((book) => (
+                    {libraryStore.books.map((book) => (
                         <BookCard key={book.id} book={book}/>
                     ))}
                 </div>
@@ -25,4 +26,4 @@ const MainPage = () => {
     );
 };
 
-export default MainPage;
+export default observer(MainPage);
