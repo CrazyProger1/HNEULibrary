@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import { observer } from "mobx-react";
-import { useParams } from "react-router-dom";
+import { Navigate, useParams } from "react-router-dom";
 import { libraryStore } from "../stores";
 import {
   calculateDiscount,
   calculatePricePerDay,
   calculatePricePerPeriod,
 } from "../utils/books.ts";
-import { STUBS } from "../constants";
+import { PAGES, STUBS } from "../constants";
 import { Note } from "../components/typography";
 
 const SpecificBookPage = () => {
@@ -20,6 +20,11 @@ const SpecificBookPage = () => {
   }, []);
 
   const book = libraryStore.book;
+
+  if (!book) {
+    return <Navigate to={PAGES.BOOKS} />;
+  }
+
   const {
     image,
     author,
@@ -63,7 +68,7 @@ const SpecificBookPage = () => {
             <input
               type="number"
               onChange={(e) => setPeriod(Math.max(Number(e.target.value), 0))}
-              value={period > 0 ? period: ""}
+              value={period > 0 ? period : ""}
             />
             <div className="flex flex-row">
               ({rental_price} грн. - {totalDiscount}%) * {period} дн. ={" "}

@@ -6,29 +6,13 @@ import { Rental } from "../types";
 export class LibraryStore {
   books: Book[] = [];
   recommendedBooks: Book[] = [];
-  book: Book = {
-    author: {
-      id: 0,
-      first_name: "",
-      last_name: "",
-    },
-    available_copies: 0,
-    deposit_price: "",
-    discounts: [],
-    genre: {
-      id: 0,
-      name: "",
-    },
-    id: 0,
-    rental_price: "",
-    title: "",
-    image: "",
-  };
+  book: Book | undefined;
   rentals: Rental[] = [];
 
   constructor() {
     makeAutoObservable(this);
   }
+
   async getBooks(filters: BookFilters = {}): Promise<Book[]> {
     const response = await getBooks(filters);
     this.books = response.results;
@@ -36,7 +20,9 @@ export class LibraryStore {
   }
 
   async getRecommendedBooks(): Promise<Book[]> {
-    const response = await getBooks();
+    const response = await getBooks({
+      ordering: "-rental_price",
+    });
     this.recommendedBooks = response.results;
     return this.books;
   }
