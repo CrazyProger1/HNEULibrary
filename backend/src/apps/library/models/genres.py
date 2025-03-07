@@ -7,7 +7,7 @@ from src.utils.db.models import TimestampModelMixin, CreatedByModelMixin
 
 class Genre(CreatedByModelMixin, TimestampModelMixin, models.Model):
     name = models.CharField(
-        max_length=250,
+        max_length=150,
         verbose_name=_("name"),
         blank=False,
         null=False,

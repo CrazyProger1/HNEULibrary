@@ -7,13 +7,13 @@ from src.utils.db.models import TimestampModelMixin, CreatedByModelMixin
 
 class Author(CreatedByModelMixin, TimestampModelMixin, models.Model):
     first_name = models.CharField(
-        max_length=250,
+        max_length=150,
         verbose_name=_("first name"),
         blank=False,
         null=False,
     )
     last_name = models.CharField(
-        max_length=250,
+        max_length=150,
         verbose_name=_("last name"),
         blank=False,
         null=False,

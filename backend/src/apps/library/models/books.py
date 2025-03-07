@@ -14,7 +14,7 @@ class Book(CreatedByModelMixin, TimestampModelMixin, models.Model):
         verbose_name=_("genre"),
     )
     title = models.CharField(
-        max_length=250,
+        max_length=150,
         verbose_name=_("title"),
         null=False,
         blank=False,

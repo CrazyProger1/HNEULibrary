@@ -7,7 +7,7 @@ from src.utils.db.models import TimestampModelMixin, CreatedByModelMixin
 
 class Discount(CreatedByModelMixin, TimestampModelMixin, models.Model):
     name = models.CharField(
-        max_length=250,
+        max_length=150,
         null=False,
         blank=False,
         verbose_name=_("name"),
