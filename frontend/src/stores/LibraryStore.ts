@@ -21,7 +21,7 @@ export class LibraryStore {
 
   async getRecommendedBooks(): Promise<Book[]> {
     const response = await getBooks({
-      ordering: "-rental_price",
+      ordering: "rental_price",
     });
     this.recommendedBooks = response.results;
     return this.books;

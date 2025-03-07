@@ -8,7 +8,7 @@ interface Props {
 }
 
 const BookCard = ({ book }: Props) => {
-  const { title, image, author } = book;
+  const { title, image, author, available_copies } = book;
   const totalDiscount = calculateDiscount(book);
   return (
     <a
@@ -20,9 +20,13 @@ const BookCard = ({ book }: Props) => {
         src={image || STUBS.BOOK_CARD_IMAGE}
         alt=""
       />
-      <div className="flex mt-1 justify-between items-end">
-        <div className={"flex flex-col gap-y-2"}>
-          <BookTitle title={title} />
+      <div className="flex mt-1 justify-between">
+        <div className="flex flex-col gap-y-2">
+          <div className="flex flex-row items-center justify-between">
+            <BookTitle title={title} />
+            <div className="font-phil text-gray-700 text-md">x{available_copies}</div>
+          </div>
+
           <p className="font-normal font-phil  text-gray-700 dark:text-gray-400">
             {author?.first_name} {author?.last_name}
           </p>
