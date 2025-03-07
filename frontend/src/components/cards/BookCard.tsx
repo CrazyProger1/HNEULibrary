@@ -22,9 +22,11 @@ const BookCard = ({ book }: Props) => {
       />
       <div className="flex mt-1 justify-between">
         <div className="flex flex-col gap-y-2">
-          <div className="flex flex-row items-center justify-between">
+          <div className="flex flex-row items-center">
             <BookTitle title={title} />
-            <div className="font-phil text-gray-700 text-md">x{available_copies}</div>
+            <div className="ml-auto font-phil text-gray-700 text-md">
+              x{available_copies}
+            </div>
           </div>
 
           <p className="font-normal font-phil  text-gray-700 dark:text-gray-400">
