@@ -63,6 +63,7 @@ const SpecificBookPage = () => {
             <input
               type="number"
               onChange={(e) => setPeriod(Math.max(Number(e.target.value), 0))}
+              value={period > 0 ? period: ""}
             />
             <div className="flex flex-row">
               ({rental_price} грн. - {totalDiscount}%) * {period} дн. ={" "}
