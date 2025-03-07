@@ -52,7 +52,7 @@ const SpecificBookPage = () => {
 
           <div className="flex flex-row font-phil">
             Персональна ціна прокату: {perDayPrice} грн.{" "}
-            <Note text={`знижка ${totalDiscount}%!`} />
+            {totalDiscount > 0 && <Note text={`знижка ${totalDiscount}%!`} />}
           </div>
           <div>Доступно копій: {available_copies} шт.</div>
 

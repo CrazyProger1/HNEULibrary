@@ -27,8 +27,8 @@ const BookCard = ({ book }: Props) => {
             {author.first_name} {author.last_name}
           </p>
           <div className="flex flex-row font-phil">
-            {calculatePricePerDay(book)}₴ / день{" "}
-            <Note text={`знижка ${totalDiscount}%!`} />
+            {calculatePricePerDay(book)} грн. / день{" "}
+            {totalDiscount > 0 && <Note text={`знижка ${totalDiscount}%!`} />}
           </div>
         </div>
       </div>
