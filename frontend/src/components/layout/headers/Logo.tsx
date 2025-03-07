@@ -1,4 +1,4 @@
-import bibliosity from "/src/assets/bibliosity22.png";
+import bibliosity from "/assets/bibliosity22.png";
 
 const Logo = () => (
     <a href={"/"}>

@@ -40,7 +40,7 @@ class BookFilter(filters.FilterSet):
         secondary_results = search_books(
             source=queryset,
             term=value,
-            fields=(
+            localized_fields=(
                 "author__first_name",
                 "author__last_name",
                 "genre__name",
