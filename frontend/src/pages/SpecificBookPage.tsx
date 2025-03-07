@@ -8,6 +8,7 @@ import {
   calculatePricePerPeriod,
 } from "../utils/books.ts";
 import { STUBS } from "../constants";
+import { Note } from "../components/typography";
 
 const SpecificBookPage = () => {
   let { id } = useParams();
@@ -39,7 +40,7 @@ const SpecificBookPage = () => {
         alt={"Book Cover"}
         className={"w-80 h-96 border-2 border-black"}
       />
-      <div className={"flex ml-10 flex-col justify-center text-left gap-y-4"}>
+      <div className={"flex ml-10 flex-col gap-y-4"}>
         <div className={"text-4xl font-bold"}>{title}</div>
         <div className={"text-2xl font-medium"}>
           {author.first_name} {author.last_name}
@@ -47,9 +48,14 @@ const SpecificBookPage = () => {
         <div className={"text-xl font-medium"}>Жанр: {genre.name}</div>
         <div className={"flex flex-col gap-y-2"}>
           <div>Ціна прокату: {rental_price} грн.</div>
-          <div>Персональна ціна прокату: {perDayPrice} грн.</div>
-          <div>Доступно копій: {available_copies} шт.</div>
           <div>Застава: {deposit_price} грн.</div>
+
+          <div className="flex flex-row font-phil">
+            Персональна ціна прокату: {perDayPrice} грн.{" "}
+            <Note text={`знижка ${totalDiscount}%!`} />
+          </div>
+          <div>Доступно копій: {available_copies} шт.</div>
+
           <div>
             <label className="block mt-4 text-sm font-semibold text-gray-900">
               Введіть період (у днях):
@@ -58,12 +64,10 @@ const SpecificBookPage = () => {
               type="number"
               onChange={(e) => setPeriod(Number(e.target.value))}
             />
-            <div>
+            <div className="flex flex-row">
               ({rental_price} грн. - {totalDiscount}%) * {period} дн. ={" "}
               {perPeriodPrice} грн.
-              <span className="text-xs text-red-500 ml-1">
-                *без урахування застави
-              </span>
+              <Note text="без урахування застави" />
             </div>
           </div>
         </div>
