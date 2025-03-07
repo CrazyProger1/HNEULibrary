@@ -3,7 +3,7 @@ import ButtonExploreBooks from "../buttons/ButtonExploreBooks.tsx";
 
 const ExploreMainPage = () => {
   return (
-    <div className="my-10">
+    <div className="my-7">
       <div className="mx-5 text-2xl font-phil font-bold w-2xl">
         <Trans i18nKey="txt_welcome" />
       </div>
