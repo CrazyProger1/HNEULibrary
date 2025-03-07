@@ -19,7 +19,7 @@ class Book(CreatedByModelMixin, TimestampModelMixin, models.Model):
         null=False,
         blank=False,
     )
-    published_at = models.DateTimeField(
+    published_at = models.DateField(
         verbose_name=_("published at"),
         help_text=_("Book publication date and time."),
         blank=True,
