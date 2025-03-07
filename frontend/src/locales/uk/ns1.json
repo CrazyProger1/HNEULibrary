@@ -7,5 +7,11 @@
   "txt_sort_price": "Сортувати за ціною",
   "txt_sort_asc": "В порядку зростання",
   "txt_sort_dsc": "В порядку спадання",
-  "txt_recommended": "Наш сайт рекомендує"
+  "txt_recommended": "Наш сайт рекомендує",
+  "txt_sort_asc_rental_price": "Від найдешевших",
+  "txt_sort_desc_rental_price": "Від найдорожчих",
+  "txt_sort_asc_copies": "Від найменшої кількості копій",
+  "txt_sort_desc_copies": "Від найбільшої кількості копій",
+  "txt_sort_asc_published_at": "Від найстаріших",
+  "txt_sort_desc_published_at": "Від найновіших"
 }

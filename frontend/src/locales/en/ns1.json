@@ -7,5 +7,11 @@
   "txt_sort_price": "Sort by Rental Price",
   "txt_sort_asc": "Ascending",
   "txt_sort_dsc": "Descending",
-  "txt_recommended": "Our website recommends"
+  "txt_recommended": "Our website recommends",
+  "txt_sort_asc_rental_price": "From the cheapest",
+  "txt_sort_desc_rental_price": "From the most expensive",
+  "txt_sort_asc_copies": "From the fewest copies",
+  "txt_sort_desc_copies": "From the most copies",
+  "txt_sort_asc_published_at": "From the oldest",
+  "txt_sort_desc_published_at": "From the newest"
 }

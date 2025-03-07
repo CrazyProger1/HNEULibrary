@@ -3,9 +3,16 @@ import { Genre } from "./genres.ts";
 import { Discount } from "./discounts.ts";
 import { Reader } from "./reader.ts";
 
+export type BookOrdering =
+  | "copies"
+  | "-copies"
+  | "rental_price"
+  | "-rental_price"
+  | "published_at"
+  | "-published_at";
 export type BookFilters = {
   query?: string;
-  ordering?: string;
+  ordering?: BookOrdering;
 };
 
 export type Book = {
