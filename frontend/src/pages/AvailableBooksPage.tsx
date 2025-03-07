@@ -1,6 +1,6 @@
 import { observer } from "mobx-react";
 import { libraryStore } from "../stores";
-import { FormEvent, useEffect, useState } from "react";
+import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import { PageTitle } from "../components/typography";
 import { Trans, useTranslation } from "react-i18next";
 import { BooksTable } from "../components/tables";
@@ -18,13 +18,14 @@ const AvailableBooksPage = () => {
     libraryStore.getBooks(filters);
   }, [filters]);
 
-  useEffect(() => {
-    setFilters({ ...filters, ordering: ordering });
-  }, [ordering]);
-
   const handleSearch = (e: FormEvent) => {
     e.preventDefault();
     setFilters({ ...filters, query: query });
+  };
+
+  const handleOrdering = (e: ChangeEvent<HTMLSelectElement>) => {
+    setOrdering(e.target.value as BookOrdering);
+    setFilters({ ...filters, ordering: ordering });
   };
 
   return (
@@ -33,7 +34,7 @@ const AvailableBooksPage = () => {
       <div className="mt-5" />
       <div className="mb-4 flex flex-row gap-4 font-phil">
         <select
-          onChange={(e) => setOrdering(e.target.value as BookOrdering)}
+          onChange={handleOrdering}
           value={ordering}
           className="px-3 py-2 border rounded-lg cursor-pointer"
         >
