@@ -15,6 +15,7 @@ class BookFilter(filters.FilterSet):
             ("updated_at", "updated_at"),
             ("published_at", "published_at"),
             ("copies", "copies"),
+            ("rental_price", "rental_price")
         ),
     )
 
