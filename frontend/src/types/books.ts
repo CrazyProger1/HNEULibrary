@@ -15,13 +15,6 @@ export type Book = {
     discounts: Discount[];
 };
 
-export type RentalsApiResponse = {
-    count: number;
-    next: string | null;
-    previous: string | null;
-    results: Rental[];
-};
-
 export type Rental = {
     id: number;
     started_at: string;
