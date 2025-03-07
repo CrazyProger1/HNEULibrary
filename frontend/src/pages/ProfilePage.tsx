@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { authStore, libraryStore } from "../stores";
 
 import { PAGES } from "../constants";
-import BookCard from "../components/cards/BookCard.tsx";
+import RentalCard from "../components/cards/RentalCard.tsx";
 
 const ProfilePage = observer(() => {
   const navigate = useNavigate();
@@ -39,9 +39,9 @@ const ProfilePage = observer(() => {
       <div className={"flex flex-col items-center gap-y-5 mt-10 font-phil "}>
         <div className={"text-4xl"}>Мої книги</div>
         <div>
-          {libraryStore.rentals.map((result) => (
-            <div key={result.id}>
-              <BookCard book={result.book} />
+          {libraryStore.rentals.map((rental) => (
+            <div key={rental.id}>
+              <RentalCard rental={rental} />
             </div>
           ))}
         </div>
