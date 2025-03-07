@@ -1,6 +1,8 @@
 import {makeAutoObservable} from "mobx";
 import {Book} from "../types";
 import {getBook, getBooks} from "../services";
+import {RentalsApiResponse} from "../types/books.ts";
+import {getRentals} from "../services/books.ts";
 
 export class LibraryStore {
     books: Book[] = [];
@@ -23,6 +25,12 @@ export class LibraryStore {
         title: "",
         image: "",
     }
+    rentals: RentalsApiResponse = {
+        count: 0,
+        next: null,
+        previous: null,
+        results: [],
+    };
 
     constructor() {
         makeAutoObservable(this);
@@ -43,6 +51,11 @@ export class LibraryStore {
     async getBookById(id: number): Promise<Book> {
         this.book = await getBook(id);
         return this.book;
+    }
+
+    async getRentals(): Promise<RentalsApiResponse> {
+        this.rentals = await getRentals();
+        return this.rentals;
     }
 }
 
