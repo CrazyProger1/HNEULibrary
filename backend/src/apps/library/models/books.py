@@ -1,4 +1,5 @@
 from django.conf import settings
+from django.core.validators import MinValueValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
@@ -27,8 +28,8 @@ class Book(CreatedByModelMixin, TimestampModelMixin, models.Model):
     author = models.ForeignKey(
         to="Author",
         on_delete=models.CASCADE,
-        null=True,
-        blank=True,
+        null=False,
+        blank=False,
         verbose_name=_("author"),
     )
     image = models.FileField(
@@ -48,6 +49,7 @@ class Book(CreatedByModelMixin, TimestampModelMixin, models.Model):
         blank=False,
         max_digits=10,
         decimal_places=2,
+        validators=(MinValueValidator(0),),
         verbose_name=_("deposit price"),
         help_text=_("The amount the client pays as a deposit."),
     )
@@ -56,6 +58,7 @@ class Book(CreatedByModelMixin, TimestampModelMixin, models.Model):
         blank=False,
         max_digits=10,
         decimal_places=2,
+        validators=(MinValueValidator(0),),
         verbose_name=_("rental price"),
         help_text=_("The cost per day for renting the book."),
     )
