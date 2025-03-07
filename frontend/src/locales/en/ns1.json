@@ -1,5 +1,10 @@
 {
   "txt_welcome": "Bibliosity is a conversation with the best people of the past, and also with their best thoughts.",
   "btn_explore_books": "Explore our books",
-  "txt_available_books": "Available books"
+  "txt_available_books": "Available books",
+  "txt_sort_title": "Sort by Title",
+  "txt_sort_genre": "Sort by Genre",
+  "txt_sort_price": "Sort by Rental Price",
+  "txt_sort_asc": "Ascending",
+  "txt_sort_dsc": "Descending"
 }
