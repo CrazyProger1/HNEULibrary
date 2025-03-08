@@ -17,7 +17,7 @@ const MainPage = () => {
       </div>
       <div className={"mx-10 mt-5"}>
         <div className="flex flex-wrap justify-center gap-5">
-          {libraryStore.recommendedBooks.map((book) => (
+          {libraryStore.recommendedBooks.slice(0,4).map((book) => (
             <BookCard key={book.id} book={book} />
           ))}
         </div>

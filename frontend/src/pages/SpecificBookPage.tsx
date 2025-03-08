@@ -71,7 +71,7 @@ const SpecificBookPage = () => {
               Введіть період (у днях):
             </label>
             <input
-              className="border rounded-lg"
+              className="border rounded-lg py-1 px-2"
               type="number"
               onChange={(e) => setPeriod(Math.max(Number(e.target.value), 0))}
               value={period > 0 ? period : ""}
